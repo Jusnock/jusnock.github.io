@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --md-text-font: "Plus Jakarta Sans", sans-serif;
+  --md-code-font: "JetBrains Mono", monospace;
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--md-code-font);
+  background-color: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #06b6d4;
+  color: #080b11 !important;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-cv:hover {
+  background-color: #22d3ee;
+  transform: translateY(-2px);
+}

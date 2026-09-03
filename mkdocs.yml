@@ -1,0 +1,101 @@
+site_name: "Juan Francisco Vazquez | Docs & Labs"
+site_description: "Portafolio técnico, casos de estudio en redes, infraestructura SysAdmin y laboratorios de Ciberseguridad (Purple Team)."
+site_author: "Juan Francisco Vazquez"
+site_url: "https://jusnock.github.io/"
+
+repo_name: "Jusnock/jusnock.github.io"
+repo_url: "https://github.com/Jusnock"
+
+theme:
+  name: material
+  language: es
+  palette:
+    # Mode switch (Default: Dark Slate / Cyan)
+    - scheme: slate
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo claro
+    - scheme: default
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo oscuro
+  font:
+    text: Plus Jakarta Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - tables
+  - def_list
+  - toc:
+      permalink: true
+
+nav:
+  - "🏠 Inicio": "index.md"
+  - "👤 Sobre Mí & CV": "sobre-mi.md"
+  - "🌐 Redes & Infraestructura":
+      - "Topología Corporativa (CPCE)": "redes-infra/topologia-corporativa-cpce.md"
+      - "Active Directory & GPO Hardening": "redes-infra/active-directory-gpo-hardening.md"
+      - "Linux Server & Contenedores Docker": "redes-infra/infraestructura-linux-docker.md"
+  - "🛡️ Ciberseguridad & Purple Team":
+      - "THM - Cyber Security 101": "ciberseguridad-purple-team/thm-cyber-security-101.md"
+      - "THM - SOC Level 1": "ciberseguridad-purple-team/thm-soc-level-1.md"
+      - "Lab - Simulación Purple Team": "ciberseguridad-purple-team/lab-purple-team-simulacion.md"
+  - "🚀 Proyectos de Software":
+      - "Syscow (Tesis Integrador UTN)": "proyectos/syscow-gestion-agropecuaria.md"
+      - "Backend Salud Digital (RST)": "proyectos/rst-salud-digital.md"
+  - "📜 Certificaciones & Estudio":
+      - "CompTIA Security+ (Preparación)": "certificaciones/comptia-security-plus.md"
+      - "Cisco Networking Academy": "certificaciones/cisco-networking-academy.md"
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Jusnock
+      name: GitHub de Juan Francisco
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/juan-francisco-vazquez-0aaa94218
+      name: LinkedIn de Juan Francisco
+    - icon: fontawesome/solid/envelope
+      link: mailto:vazquezjuanfrancisco49@gmail.com
+      name: Contacto Directo por Email
