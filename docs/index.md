@@ -29,6 +29,28 @@ El foco principal de especialización abarca la integración entre **Infraestruc
 
 ---
 
+## Secciones
+
+### [Redes e Infraestructura](redes-infra/topologia-corporativa-cpce.md)
+* **[Topología Corporativa (CPCE)](redes-infra/topologia-corporativa-cpce.md)**
+* **[Active Directory & Hardening GPO](redes-infra/active-directory-gpo-hardening.md)**
+* **[Servidores Linux & Docker](redes-infra/infraestructura-linux-docker.md)**
+
+### [Ciberseguridad](ciberseguridad-purple-team/thm-cyber-security-101.md)
+* **[THM - Cyber Security 101](ciberseguridad-purple-team/thm-cyber-security-101.md)**
+* **[THM - SOC Level 1](ciberseguridad-purple-team/thm-soc-level-1.md)**
+* **[Laboratorio Purple Team](ciberseguridad-purple-team/lab-purple-team-simulacion.md)**
+
+### [Proyectos](proyectos/syscow-gestion-agropecuaria.md)
+* **[Syscow - Gestión Agropecuaria](proyectos/syscow-gestion-agropecuaria.md)**
+* **[Backend Salud Digital](proyectos/rst-salud-digital.md)**
+
+### [Certificaciones & Formación](certificaciones/comptia-security-plus.md)
+* **[CompTIA Security+](certificaciones/comptia-security-plus.md)**
+* **[Cisco Networking Academy](certificaciones/cisco-networking-academy.md)**
+
+---
+
 ## Contacto
 
 * **Email:** [vazquezjuanfrancisco49@gmail.com](mailto:vazquezjuanfrancisco49@gmail.com)
