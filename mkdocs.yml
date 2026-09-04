@@ -74,7 +74,10 @@ nav:
   - "Perfil & CV": "sobre-mi.md"
   - "Redes e Infraestructura": "redes-infra.md"
   - "Ciberseguridad": "ciberseguridad.md"
-  - "Proyectos": "proyectos.md"
+  - "Proyectos":
+      - "Índice de Proyectos": "proyectos/index.md"
+      - "Red Empresarial Virtualizada": "proyectos/red-empresarial-virtualizada.md"
+      - "PyRecon-Tool": "proyectos/pyrecon-tool.md"
   - "Certificaciones & Formación": "certificaciones.md"
 
 extra:

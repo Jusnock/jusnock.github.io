@@ -11,11 +11,11 @@
 
 ## Herramientas de Seguridad Desarrolladas
 
-### [PyRecon-Tool — Network Reconnaissance CLI](proyectos.md#pyrecon-tool-herramienta-de-reconocimiento-de-redes-ciberseguridad)
+### [PyRecon-Tool — Network Reconnaissance CLI](proyectos/pyrecon-tool.md)
 Herramienta de automatización de reconocimiento en Python orientada a escaneo de red, enumeración de subdominios vía API, validación ICMP con `scapy`, escaneo de puertos TCP por sockets y banner grabbing.
 
 * **Repositorio:** [github.com/Jusnock/PyRecon-Tool](https://github.com/Jusnock/PyRecon-Tool)
-* **Documentación completa:** [Ver detalle en Proyectos](proyectos.md#pyrecon-tool-herramienta-de-reconocimiento-de-redes-ciberseguridad)
+* **Documentación completa:** [Ver detalle en Proyectos](proyectos/pyrecon-tool.md)
 
 ---
 

@@ -33,7 +33,7 @@ El foco principal de especialización abarca la integración entre **Infraestruc
 
 * **[Redes e Infraestructura](redes-infra.md):** Documentación técnica y casos de estudio de arquitectura de red.
 * **[Ciberseguridad](ciberseguridad.md):** Writeups, análisis de tráfico y laboratorios prácticos.
-* **[Proyectos](proyectos.md):** Proyectos de software y desarrollos aplicados.
+* **[Proyectos](proyectos/index.md):** Proyectos de software y desarrollos aplicados.
 * **[Certificaciones & Formación](certificaciones.md):** Notas de estudio y hoja de ruta académica y profesional.
 
 ---
