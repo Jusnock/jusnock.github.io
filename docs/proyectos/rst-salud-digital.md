@@ -1,4 +1,4 @@
-# 🏥 Pasantía en Desarrollo Backend — RST Red de Salud Tecnológica
+# Desarrollo Backend — RST Red de Salud Tecnológica
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">Backend Development</span>
@@ -7,7 +7,7 @@
   <span class="badge-tag">HealthTech</span>
 </div>
 
-## 📌 Contexto & Alcance
+## Contexto & Alcance
 
 Durante la pasantía profesional en **RST (Red de Salud Tecnológica)**, colaboré en el equipo de ingeniería backend participando en el desarrollo, mantenimiento y optimización de microservicios utilizados para la gestión de historias clínicas y plataformas de salud digital.
 
@@ -16,7 +16,7 @@ Durante la pasantía profesional en **RST (Red de Salud Tecnológica)**, colabor
 
 ---
 
-## 🛠️ Contribuciones Clave
+## Contribuciones Clave
 
 * **Diseño de Endpoints RESTful:** Implementación de nuevos endpoints para intercambio de datos médicos respetando principios de diseño REST, serialización de datos y manejo de excepciones.
 * **Optimización de Consultas SQL:** Análisis de planes de ejecución de consultas complejas (*EXPLAIN ANALYZE*) y reestructuración de joins para reducir tiempos de espera en consultas de historiales de pacientes.

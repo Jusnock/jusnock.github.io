@@ -1,13 +1,13 @@
-# 🐄 Syscow — Plataforma Integral de Gestión Agropecuaria
+# Syscow — Plataforma Integral de Gestión Agropecuaria
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-  <span class="badge-tag">Proyecto Tesis UTN FRM</span>
+  <span class="badge-tag">Proyecto Integrador UTN FRM</span>
   <span class="badge-tag">Python & REST APIs</span>
   <span class="badge-tag">SQL Database</span>
   <span class="badge-tag">Arquitectura Modular</span>
 </div>
 
-## 📌 Resumen del Proyecto
+## Resumen del Proyecto
 
 **Syscow** es el proyecto integrador final de grado desarrollado para la carrera de **Ingeniería en Sistemas de Información en la Universidad Tecnológica Nacional (UTN FRM)**.
 
@@ -18,7 +18,7 @@ El sistema resuelve la problemática de trazabilidad, control sanitario, gestió
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El proyecto fue diseñado bajo una arquitectura desacoplada y orientada a servicios:
 
@@ -35,7 +35,7 @@ graph TD
 
 ---
 
-## 🔑 Características Técnicas Principales
+## Características Técnicas Principales
 
 1. **Gestión de Ciclo de Vida Animal:** Registro de nacimientos, categorización de animales, pesajes históricos y curvas de rendimiento.
 2. **Historial Clínico y Sanitario:** Registro de vacunaciones obligatorias, tratamientos veterinarios y alertas de períodos de retiro medicamentoso.

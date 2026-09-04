@@ -1,5 +1,5 @@
 site_name: "Juan Francisco Vazquez | Docs & Labs"
-site_description: "Portafolio técnico, casos de estudio en redes, infraestructura SysAdmin y laboratorios de Ciberseguridad (Purple Team)."
+site_description: "Documentación técnica, casos de estudio en redes, infraestructura SysAdmin y laboratorios de Ciberseguridad."
 site_author: "Juan Francisco Vazquez"
 site_url: "https://jusnock.github.io/"
 
@@ -10,19 +10,18 @@ theme:
   name: material
   language: es
   palette:
-    # Mode switch (Default: Dark Slate / Cyan)
     - scheme: slate
-      primary: cyan
-      accent: teal
+      primary: slate
+      accent: indigo
       toggle:
         icon: material/weather-night
-        name: Cambiar a modo claro
+        name: Modo claro
     - scheme: default
-      primary: cyan
-      accent: teal
+      primary: slate
+      accent: indigo
       toggle:
         icon: material/weather-sunny
-        name: Cambiar a modo oscuro
+        name: Modo oscuro
   font:
     text: Plus Jakarta Sans
     code: JetBrains Mono
@@ -71,31 +70,31 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - "🏠 Inicio": "index.md"
-  - "👤 Sobre Mí & CV": "sobre-mi.md"
-  - "🌐 Redes & Infraestructura":
+  - "Inicio": "index.md"
+  - "Perfil & CV": "sobre-mi.md"
+  - "Redes e Infraestructura":
       - "Topología Corporativa (CPCE)": "redes-infra/topologia-corporativa-cpce.md"
-      - "Active Directory & GPO Hardening": "redes-infra/active-directory-gpo-hardening.md"
-      - "Linux Server & Contenedores Docker": "redes-infra/infraestructura-linux-docker.md"
-  - "🛡️ Ciberseguridad & Purple Team":
+      - "Active Directory & Hardening GPO": "redes-infra/active-directory-gpo-hardening.md"
+      - "Servidores Linux & Docker": "redes-infra/infraestructura-linux-docker.md"
+  - "Ciberseguridad":
       - "THM - Cyber Security 101": "ciberseguridad-purple-team/thm-cyber-security-101.md"
       - "THM - SOC Level 1": "ciberseguridad-purple-team/thm-soc-level-1.md"
-      - "Lab - Simulación Purple Team": "ciberseguridad-purple-team/lab-purple-team-simulacion.md"
-  - "🚀 Proyectos de Software":
-      - "Syscow (Tesis Integrador UTN)": "proyectos/syscow-gestion-agropecuaria.md"
-      - "Backend Salud Digital (RST)": "proyectos/rst-salud-digital.md"
-  - "📜 Certificaciones & Estudio":
-      - "CompTIA Security+ (Preparación)": "certificaciones/comptia-security-plus.md"
+      - "Laboratorio Purple Team": "ciberseguridad-purple-team/lab-purple-team-simulacion.md"
+  - "Proyectos":
+      - "Syscow - Gestión Agropecuaria": "proyectos/syscow-gestion-agropecuaria.md"
+      - "Backend Salud Digital": "proyectos/rst-salud-digital.md"
+  - "Certificaciones & Formación":
+      - "CompTIA Security+": "certificaciones/comptia-security-plus.md"
       - "Cisco Networking Academy": "certificaciones/cisco-networking-academy.md"
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Jusnock
-      name: GitHub de Juan Francisco
+      name: GitHub
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/juan-francisco-vazquez-0aaa94218
-      name: LinkedIn de Juan Francisco
+      name: LinkedIn
     - icon: fontawesome/solid/envelope
       link: mailto:vazquezjuanfrancisco49@gmail.com
-      name: Contacto Directo por Email
+      name: Email

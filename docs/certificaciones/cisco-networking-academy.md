@@ -1,4 +1,4 @@
-# 🎓 Cisco Networking Academy — Formación Técnica en Redes
+# Cisco Networking Academy — Formación Técnica en Redes
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">Cisco Networking Academy</span>
@@ -6,7 +6,7 @@
   <span class="badge-tag">Routing & Switching</span>
 </div>
 
-## 📌 Resumen de Formación
+## Resumen de Formación
 
 * **Entidad:** Cisco Networking Academy
 * **Período:** 2024 – 2025
@@ -14,7 +14,7 @@
 
 ---
 
-## 🔧 Competencias Desarrolladas
+## Competencias Desarrolladas
 
 1. **Conmutación LAN (Switching):**
     * Configuración de puertos de acceso y troncales (*Trunk 802.1Q*).

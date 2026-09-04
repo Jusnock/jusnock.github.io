@@ -1,4 +1,4 @@
-# 🔍 TryHackMe: SOC Level 1 (Análisis de Tráfico, Logs & SIEM)
+# TryHackMe: SOC Level 1 (Análisis de Tráfico, Logs & SIEM)
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">TryHackMe</span>
@@ -7,16 +7,16 @@
   <span class="badge-tag">Incident Response</span>
 </div>
 
-## 📌 Enfoque de la Ruta SOC Level 1
+## Enfoque de la Ruta SOC Level 1
 
 La ruta **SOC Level 1** profundiza en las habilidades operativas de un analista de centro de operaciones de seguridad (SOC): monitoreo de alertas, análisis de tráfico de red malicioso, triaje de incidentes e investigación forense inicial.
 
-* **Estado:** ⏳ En curso (2026)
+* **Estado:** En curso (2026)
 * **Áreas Clave:** Análisis de tráfico de red, herramientas SIEM, Endpoint Detection & Response (EDR) y Threat Intelligence.
 
 ---
 
-## 🧪 Laboratorios Prácticos Destacados
+## Laboratorios Prácticos Destacados
 
 ### 1. Análisis Forense de Tráfico con Wireshark
 
@@ -60,7 +60,7 @@ sequenceDiagram
 
 ---
 
-## 💡 Metodología de Triaje de Incidentes
+## Metodología de Triaje de Incidentes
 
 1. **Identificación & Verificación:** Comprobación de si la alerta es un falso positivo o un incidente real mediante correlación de fuentes (logs del firewall + logs del endpoint).
 2. **Contención Inicial:** Aislamiento lógico del host afectado de la red corporativa mediante VLAN de cuarentena o reglas de firewall dinámicas.

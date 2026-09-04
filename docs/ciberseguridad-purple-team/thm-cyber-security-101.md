@@ -1,4 +1,4 @@
-# 🛡️ TryHackMe: Cyber Security 101 (Writeup & Bitácora)
+# TryHackMe: Cyber Security 101 (Writeup & Bitácora)
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">TryHackMe</span>
@@ -7,17 +7,17 @@
   <span class="badge-tag">Fundamentos Purple Team</span>
 </div>
 
-## 📌 Resumen de la Ruta de Especialización
+## Resumen de la Ruta de Especialización
 
 La ruta **Cyber Security 101** de TryHackMe cubre los cimientos teóricos y prácticos de la seguridad informática contemporánea, abarcando desde fundamentos de redes y sistemas operativos hasta metodologías de ataque y defensa.
 
-* **Estado:** ✅ Completado (100%)
+* **Estado:** Completado (100%)
 * **Plataforma:** [TryHackMe](https://tryhackme.com)
 * **Perfil:** [Jusnock @ TryHackMe](https://tryhackme.com)
 
 ---
 
-## 🔬 Módulos Principales & Aprendizajes Clave
+## Módulos Principales & Aprendizajes Clave
 
 ### 1. Fundamentos de Redes para Ciberseguridad
 * **Modelo OSI & TCP/IP:** Análisis profundo de la encapsulación de paquetes, negociación *3-way handshake* TCP (`SYN` -> `SYN-ACK` -> `ACK`), banderas TCP (`FIN`, `RST`, `PSH`, `URG`) y su relevancia en escaneos con Nmap.
@@ -36,7 +36,7 @@ La ruta **Cyber Security 101** de TryHackMe cubre los cimientos teóricos y prá
 
 ---
 
-## 🛠️ Comandos & Herramientas Frecuentes
+## Comandos & Herramientas Frecuentes
 
 ```bash
 # Escaneo sigiloso con detección de versiones y scripts comunes

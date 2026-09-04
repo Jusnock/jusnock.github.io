@@ -1,4 +1,4 @@
-# 🌐 Caso de Estudio: Topología de Red y VPN Corporativa (CPCE)
+# Caso de Estudio: Topología de Red y VPN Corporativa (CPCE)
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">MikroTik RouterOS</span>
@@ -7,13 +7,13 @@
   <span class="badge-tag">OpenVPN Tunnel</span>
 </div>
 
-## 📌 Contexto & Requerimiento
+## Contexto & Requerimiento
 
 El **Consejo Profesional de Ciencias Económicas (CPCE)** requería una infraestructura de red robusta, escalable y segura para dar soporte a decenas de colaboradores internos, terminales de autoservicio para matriculados, accesos Wi-Fi para invitados y enlaces seguros de acceso remoto para teletrabajo.
 
 ---
 
-## 🏛️ Arquitectura de Red y Segmentación por VLANs
+## Arquitectura de Red y Segmentación por VLANs
 
 Para mitigar riesgos de movimiento lateral y broadcast storm, la red física se dividió lógicamente en múltiples **Virtual LANs (VLANs)** con políticas de acceso y reglas de firewalling estrictas en el core router:
 
@@ -35,13 +35,13 @@ graph TD
 | VLAN ID | Segmento | Propósito | Acceso a Servidores | Salida a Internet |
 |---|---|---|---|---|
 | **VLAN 10** | `10.10.10.0/24` | Servidores Core (AD, DNS, DB) | Total (Local) | Restringida |
-| **VLAN 20** | `10.10.20.0/24` | Workstations de personal | Puertos específicos (Kerberos, SMB, RDP) | Permitida (Proxy/Filter) |
-| **VLAN 30** | `10.10.30.0/24` | Wi-Fi Invitados / Matriculados | ❌ Bloqueado por Firewall | Permitida |
-| **VLAN 40** | `10.10.40.0/24` | NVR & Cámaras de Vigilancia | ❌ Bloqueado | ❌ Bloqueado |
+| **VLAN 20** | `10.10.20.0/24` | Workstations de personal | Puertos específicos (Kerberos, SMB, RDP) | Permitida (Filtrada) |
+| **VLAN 30** | `10.10.30.0/24` | Wi-Fi Invitados / Matriculados | Denegado por Firewall | Permitida |
+| **VLAN 40** | `10.10.40.0/24` | NVR & Cámaras de Vigilancia | Denegado | Denegado |
 
 ---
 
-## ⚙️ Configuración Destacada en MikroTik RouterOS
+## Configuración Destacada en MikroTik RouterOS
 
 ### 1. Reglas de Filtrado Inter-VLAN (Bloqueo de Tráfico no Autorizado)
 
@@ -68,7 +68,7 @@ set auth=sha256 cipher=aes256 default-profile=ovpn-profile \
 
 ---
 
-## 🛡️ Lecciones Aprendidas y Buenas Prácticas
+## Lecciones Aprendidas y Buenas Prácticas
 
 1. **Aislamiento de Perímetro:** La segregación estricta de VLANs evita que un dispositivo comprometido en la red Wi-Fi de invitados pueda escanear puertos en los controladores de dominio.
 2. **QoS (Quality of Service):** Se asignó prioridad de ancho de banda a los servicios críticos de gestión y telefonía IP frente al tráfico general de navegación.

@@ -1,4 +1,4 @@
-# 📜 CompTIA Security+ — Notas de Estudio & Dominios Clave
+# CompTIA Security+ — Notas de Estudio & Dominios Clave
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">CompTIA Security+</span>
@@ -6,13 +6,13 @@
   <span class="badge-tag">En Preparación (2026)</span>
 </div>
 
-## 📌 Hoja de Ruta de Certificación
+## Hoja de Ruta de Certificación
 
 La certificación **CompTIA Security+ (SY0-701)** es el estándar internacional de la industria para validar las competencias operativas fundamentales en seguridad de redes, gestión de riesgos y respuesta ante amenazas.
 
 ---
 
-## 📚 Desglose de Dominios de Examen
+## Desglose de Dominios de Examen
 
 ```mermaid
 pie title Distribución de Dominios CompTIA Security+

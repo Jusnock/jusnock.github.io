@@ -1,4 +1,4 @@
-# 🟣 Laboratorio Práctico: Simulación Purple Team en Entornos Aislados
+# Laboratorio de Simulación Purple Team en Entornos Aislados
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">Purple Team</span>
@@ -7,13 +7,13 @@
   <span class="badge-tag">Hardening</span>
 </div>
 
-## 📌 ¿Por qué la Metodología Purple Team?
+## Metodología Purple Team
 
 El enfoque **Purple Team** integra la perspectiva del atacante (Red Team) y la del defensor (Blue Team) en un ciclo de retroalimentación continuo. En lugar de limitarse a auditorías esporádicas, se prueban controles defensivos reales contra técnicas tácticas conocidas.
 
 ---
 
-## 🏗️ Topología del Laboratorio de Pruebas
+## Topología del Laboratorio de Pruebas
 
 Para realizar simulaciones seguras sin riesgo de afectar redes de producción, se implementó un entorno virtualizado sobre **GNS3** y contenedores **Docker**:
 
@@ -33,7 +33,7 @@ graph LR
 
 ---
 
-## 🎯 Ejercicios Simulados & Respuestas Defensivas
+## Ejercicios Simulados & Respuestas Defensivas
 
 ### Caso 1: Detección y Mitigación de Escaneos de Red (Port Scanning)
 * **Acción Ofensiva:** Escaneo `nmap -sS -A` desde el nodo Kali para enumerar servicios y versiones.

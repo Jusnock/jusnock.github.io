@@ -1,4 +1,4 @@
-# 🐧 Servidores Linux (Ubuntu Server) y Contenedores Docker
+# Servidores Linux (Ubuntu Server) & Contenedores Docker
 
 <div style="display: flex; gap: 8px; margin-bottom: 20px;">
   <span class="badge-tag">Ubuntu Server</span>
@@ -7,13 +7,13 @@
   <span class="badge-tag">UFW Firewall</span>
 </div>
 
-## 📌 Rol de Linux e Infraestructura Contenerizada
+## Rol de Linux e Infraestructura Contenerizada
 
 Junto con el entorno Windows, se despliegan servidores virtuales con **Ubuntu Server** para la ejecución de herramientas de monitoreo, servicios auxiliares y entornos de prueba aislados mediante **Docker**.
 
 ---
 
-## 🔐 Procedimiento Estándar de Hardening en Servidores Linux
+## Procedimiento Estándar de Hardening en Servidores Linux
 
 Cada nuevo nodo Linux incorporado a la infraestructura sigue un checklist de seguridad antes de pasar a producción:
 
@@ -48,7 +48,7 @@ sudo ufw enable
 
 ---
 
-## 🐳 Implementación de Servicios con Docker Compose
+## Implementación de Servicios con Docker Compose
 
 Uso de Docker para aislar servicios en contenedores con redes puente (*bridge networks*) internas no expuestas directamente a la interfaz pública:
 
