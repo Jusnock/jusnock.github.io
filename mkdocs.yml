@@ -72,20 +72,6 @@ markdown_extensions:
 nav:
   - "Inicio": "index.md"
   - "Perfil & CV": "sobre-mi.md"
-  - "Redes e Infraestructura":
-      - "Topología Corporativa (CPCE)": "redes-infra/topologia-corporativa-cpce.md"
-      - "Active Directory & Hardening GPO": "redes-infra/active-directory-gpo-hardening.md"
-      - "Servidores Linux & Docker": "redes-infra/infraestructura-linux-docker.md"
-  - "Ciberseguridad":
-      - "THM - Cyber Security 101": "ciberseguridad-purple-team/thm-cyber-security-101.md"
-      - "THM - SOC Level 1": "ciberseguridad-purple-team/thm-soc-level-1.md"
-      - "Laboratorio Purple Team": "ciberseguridad-purple-team/lab-purple-team-simulacion.md"
-  - "Proyectos":
-      - "Syscow - Gestión Agropecuaria": "proyectos/syscow-gestion-agropecuaria.md"
-      - "Backend Salud Digital": "proyectos/rst-salud-digital.md"
-  - "Certificaciones & Formación":
-      - "CompTIA Security+": "certificaciones/comptia-security-plus.md"
-      - "Cisco Networking Academy": "certificaciones/cisco-networking-academy.md"
 
 extra:
   social:
