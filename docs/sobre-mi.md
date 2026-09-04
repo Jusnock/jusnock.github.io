@@ -6,7 +6,7 @@
 **LinkedIn:** [linkedin.com/in/juan-francisco-vazquez-0aaa94218](https://linkedin.com/in/juan-francisco-vazquez-0aaa94218) | **GitHub:** [github.com/Jusnock](https://github.com/Jusnock)
 
 <div style="margin: 20px 0;">
-  <a href="assets/CV-Juan-Francisco-Vazquez.pdf" target="_blank" download class="btn-cv">
+  <a href="../assets/CV-Juan-Francisco-Vazquez.pdf" target="_blank" download="CV-Juan-Francisco-Vazquez.pdf" class="btn-cv">
     Descargar CV Oficial (PDF)
   </a>
 </div>

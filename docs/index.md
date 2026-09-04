@@ -8,10 +8,8 @@
   <span class="badge-tag">SecOps & SysAdmin</span>
 </div>
 
-Bienvenido a mi espacio personal de documentación técnica y perfil profesional.
-
 <div style="margin: 25px 0; display: flex; gap: 12px; flex-wrap: wrap;">
-  <a href="assets/CV-Juan-Francisco-Vazquez.pdf" target="_blank" download class="btn-cv">
+  <a href="assets/CV-Juan-Francisco-Vazquez.pdf" target="_blank" download="CV-Juan-Francisco-Vazquez.pdf" class="btn-cv">
     Descargar CV en PDF
   </a>
   <a href="sobre-mi/" class="btn-cv" style="background-color: transparent; border: 1px solid var(--md-default-fg-color--lightest); color: var(--md-default-fg-color) !important;">

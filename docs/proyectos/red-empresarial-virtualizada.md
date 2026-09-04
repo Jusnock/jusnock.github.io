@@ -13,7 +13,7 @@
 </div>
 
 <div style="margin: 20px 0;">
-  <a href="../assets/Proyecto-Red-Memoria-Tecnica.pdf" target="_blank" download class="btn-cv">
+  <a href="../../assets/Proyecto-Red-Memoria-Tecnica.pdf" target="_blank" download="Proyecto-Red-Memoria-Tecnica.pdf" class="btn-cv">
     Descargar Memoria Técnica Completa (PDF · 38 Págs)
   </a>
 </div>
