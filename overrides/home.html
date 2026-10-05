@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Francisco Vazquez — Portafolio & Labs</title>
+  <meta name="description" content="Portafolio profesional de Juan Francisco Vazquez. Especialista en Infraestructura de Redes, Administración de Sistemas y Ciberseguridad (SOC / Purple Team).">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2316150f'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#eeece5',
+            surface: '#f8f7f3',
+            'surface-2': '#e7e4da',
+            line: '#dcd9cd',
+            ink: '#16150f',
+            muted: '#6f6d62',
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-paper: #eeece5;
+      --color-surface: #f8f7f3;
+      --color-surface-2: #e7e4da;
+      --color-line: #dcd9cd;
+      --color-ink: #16150f;
+      --color-muted: #6f6d62;
+    }
+
+    body {
+      background-color: var(--color-paper);
+      color: var(--color-ink);
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      /* Subtle editorial paper grain texture */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Custom minimalist scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-paper);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-line);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-muted);
+    }
+
+    /* Soundwave equalizer indicator */
+    @keyframes barPulse {
+      0%, 100% { transform: scaleY(0.7); }
+      50% { transform: scaleY(1.3); }
+    }
+    .bar-1 { animation: barPulse 1.2s ease-in-out infinite; transform-origin: bottom; }
+    .bar-2 { animation: barPulse 1.5s ease-in-out infinite 0.2s; transform-origin: bottom; }
+    .bar-3 { animation: barPulse 1.3s ease-in-out infinite 0.4s; transform-origin: bottom; }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Header / Nav -->
+  <header id="main-nav" class="sticky top-0 z-40 transition-colors border-b border-transparent">
+    <nav class="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-4">
+      <a href="#home" class="font-semibold tracking-tight text-ink text-base">
+        Juan Francisco Vazquez
+      </a>
+
+      <!-- Status dot -->
+      <div class="hidden items-center gap-2 text-xs sm:text-sm text-muted sm:flex">
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+        </span>
+        Disponible para trabajar
+      </div>
+
+      <!-- Location & Time -->
+      <div class="hidden items-center gap-2 text-sm text-muted md:flex">
+        <span>Mendoza, Argentina</span>
+        <span class="opacity-40">·</span>
+        <span id="live-time">--:--</span>
+      </div>
+
+      <!-- Menu Button -->
+      <button
+        type="button"
+        id="open-menu-btn"
+        class="flex items-center gap-2 text-sm font-medium text-ink focus:outline-none"
+        aria-label="Abrir menú"
+      >
+        Menú
+        <span class="flex flex-col gap-[3px]">
+          <span class="h-[1.5px] w-4 bg-ink"></span>
+          <span class="h-[1.5px] w-4 bg-ink"></span>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div id="menu-overlay" class="fixed inset-0 z-50 flex-col bg-paper hidden">
+    <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-4">
+      <span class="font-semibold tracking-tight text-ink">Juan Francisco Vazquez</span>
+      <button
+        type="button"
+        id="close-menu-btn"
+        class="text-sm font-medium text-ink focus:outline-none"
+        aria-label="Cerrar menú"
+      >
+        Cerrar ✕
+      </button>
+    </div>
+
+    <div class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center gap-4 px-5">
+      <a href="#home" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Inicio</a>
+      <a href="#projects" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Proyectos Seleccionados</a>
+      <a href="#experience" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Experiencia & Educación</a>
+      <a href="#skills" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Habilidades</a>
+      <a href="#certifications" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Certificaciones</a>
+      <a href="#contact" class="menu-link text-4xl sm:text-6xl font-bold tracking-tight text-ink transition-opacity hover:opacity-60">Contacto</a>
+    </div>
+
+    <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-6 text-sm text-muted border-t border-line">
+      <span>Mendoza, Argentina</span>
+      <span>vazquezjuanfrancisco49@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="mx-auto w-full max-w-5xl px-5 pt-16 pb-20 sm:pt-24">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold tracking-tight text-ink sm:text-7xl">
+        JUAN FRANCISCO VAZQUEZ
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted sm:text-xl font-normal leading-relaxed">
+        Estudiante avanzado de Ingeniería en Sistemas (UTN FRM) · Infraestructura de Redes, SysAdmin & Ciberseguridad defensiva/ofensiva (Purple Team).
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="#contact"
+          class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-85 shadow-sm"
+        >
+          Contactar
+        </a>
+        <a
+          href="assets/CV-Juan-Francisco-Vazquez.pdf"
+          target="_blank"
+          download="CV-Juan-Francisco-Vazquez.pdf"
+          class="rounded-full border border-line bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-ink hover:bg-surface-2"
+        >
+          Descargar CV (PDF)
+        </a>
+        <a
+          href="https://github.com/Jusnock"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="text-sm font-medium text-muted hover:text-ink transition-colors"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href="https://linkedin.com/in/juan-francisco-vazquez-0aaa94218"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="text-sm font-medium text-muted hover:text-ink transition-colors"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+
+
+
+    <!-- Specialties and Bio pitch -->
+    <div class="mt-14 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between border-t border-line pt-8">
+      <ul class="flex flex-col gap-3">
+        <li class="flex items-center gap-2.5 text-sm font-medium text-ink">
+          <span class="flex items-end gap-[2px] h-3.5" aria-hidden="true">
+            <span class="h-2 w-[3px] bg-ink bar-1"></span>
+            <span class="h-3.5 w-[3px] bg-ink bar-2"></span>
+            <span class="h-2.5 w-[3px] bg-ink bar-3"></span>
+          </span>
+          Ciberseguridad & Purple Teaming (Wazuh SIEM / EDR)
+        </li>
+        <li class="flex items-center gap-2.5 text-sm font-medium text-ink">
+          <span class="flex items-end gap-[2px] h-3.5" aria-hidden="true">
+            <span class="h-2 w-[3px] bg-ink bar-1"></span>
+            <span class="h-3.5 w-[3px] bg-ink bar-2"></span>
+            <span class="h-2.5 w-[3px] bg-ink bar-3"></span>
+          </span>
+          Infraestructura de Redes Corporativas (MikroTik / Ubiquiti)
+        </li>
+        <li class="flex items-center gap-2.5 text-sm font-medium text-ink">
+          <span class="flex items-end gap-[2px] h-3.5" aria-hidden="true">
+            <span class="h-2 w-[3px] bg-ink bar-1"></span>
+            <span class="h-3.5 w-[3px] bg-ink bar-2"></span>
+            <span class="h-2.5 w-[3px] bg-ink bar-3"></span>
+          </span>
+          Administración de Servidores (Linux Ubuntu / Windows Server)
+        </li>
+      </ul>
+
+      <p class="max-w-md text-sm leading-relaxed text-muted sm:text-right">
+        Experiencia práctica en soporte N2/N3, despliegue de redes corporativas segmentadas y laboratorios avanzados de detección de amenazas. Comprometido con soluciones de infraestructura estables, reproducibles y seguras.
+      </p>
+    </div>
+  </section>
+
+  <!-- Selected Projects Section -->
+  <section id="projects" class="mx-auto w-full max-w-5xl px-5 py-20 border-t border-line">
+    <div class="flex flex-wrap items-end gap-x-3 gap-y-1">
+      <h2 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Proyectos Seleccionados</h2>
+      <span class="pb-1 text-sm text-muted">2024–2026</span>
+    </div>
+    <p class="mt-3 max-w-2xl text-muted text-base">
+      Laboratorios prácticos de ciberseguridad, topologías de infraestructura corporativa y herramientas CLI de auditoría.
+    </p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+      <!-- PROJECT 1: Enterprise SOC & Purple Team Simulation Lab (EL ULTIMO LAB) -->
+      <div
+        class="group flex flex-col justify-between overflow-hidden rounded-2xl cursor-pointer border border-line bg-surface p-6 sm:p-7 shadow-sm transition-colors hover:border-ink hover:bg-surface-2 relative"
+        onclick="openProjectModal('soc-lab')"
+      >
+        <span class="absolute right-6 top-6 rounded-full border border-line bg-surface-2 px-3 py-1 text-xs font-semibold text-ink shadow-sm">
+          Destacado · Nuevo Lab
+        </span>
+        <div class="mt-8 sm:mt-0">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted mb-2">Ciberseguridad & Purple Team</p>
+          <h3 class="text-2xl font-bold tracking-tight text-ink">Enterprise SOC & Purple Team Simulation Lab</h3>
+          <p class="mt-3 text-sm text-muted line-clamp-3 leading-relaxed">
+            Emulación de ataques SSH Brute Force (Hydra), telemetría Sysmon/Linux, reglas Sigma y contención Active Response en Wazuh.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Wazuh SIEM</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">MITRE T1110.001</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Sigma</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Active Response</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Red Empresarial Virtualizada -->
+      <div
+        class="group flex flex-col justify-between overflow-hidden rounded-2xl cursor-pointer border border-line bg-surface p-6 sm:p-7 shadow-sm transition-colors hover:border-ink hover:bg-surface-2 relative"
+        onclick="openProjectModal('network-lab')"
+      >
+        <span class="absolute right-6 top-6 rounded-full border border-line bg-surface-2 px-3 py-1 text-xs font-semibold text-ink shadow-sm">
+          Destacado · Memoria 38 Págs
+        </span>
+        <div class="mt-8 sm:mt-0">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted mb-2">Infraestructura & Routing</p>
+          <h3 class="text-2xl font-bold tracking-tight text-ink">Diseño y Seguridad de Red Empresarial Virtualizada</h3>
+          <p class="mt-3 text-sm text-muted line-clamp-3 leading-relaxed">
+            Infraestructura multicapa en GNS3 con router central MikroTik CHR v7, segmentación 802.1Q en 5 VLANs, Windows Server AD y OpenVPN.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">MikroTik RouterOS</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Active Directory</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">OpenVPN</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">GNS3</span>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: PyRecon-Tool CLI -->
+      <div
+        class="group flex flex-col justify-between overflow-hidden rounded-2xl cursor-pointer border border-line bg-surface p-6 sm:p-7 shadow-sm transition-colors hover:border-ink hover:bg-surface-2 relative md:col-span-2 lg:col-span-1"
+        onclick="openProjectModal('pyrecon-tool')"
+      >
+        <span class="absolute right-6 top-6 rounded-full border border-line bg-surface-2 px-3 py-1 text-xs font-semibold text-ink shadow-sm">
+          Herramienta CLI
+        </span>
+        <div class="mt-8 sm:mt-0">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted mb-2">Open Source</p>
+          <h3 class="text-2xl font-bold tracking-tight text-ink">PyRecon-Tool — Network Reconnaissance CLI</h3>
+          <p class="mt-3 text-sm text-muted line-clamp-3 leading-relaxed">
+            CLI en Python 3 para análisis de superficie de ataque: host discovery con Scapy (ICMP), escaneo de puertos multithread y banner grabbing.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Python 3</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Scapy</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Concurrency</span>
+          <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">Sockets TCP</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="mx-auto w-full max-w-5xl px-5 py-20 border-t border-line">
+    <div class="flex flex-wrap items-end gap-x-3 gap-y-1">
+      <h2 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Habilidades & Tecnologías</h2>
+      <span class="pb-1 text-sm text-muted">Herramientas y competencias técnicas</span>
+    </div>
+
+    <div class="mt-10 space-y-7">
+      <!-- Ciberseguridad -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted mb-3">Ciberseguridad & SOC</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Wazuh SIEM / EDR</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">MITRE ATT&CK</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Sigma Rules (YAML)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Microsoft Sysmon</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Wazuh Active Response</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Hydra & Nmap</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Wireshark & tcpdump</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Incident Response (NIST / SANS)</span>
+        </div>
+      </div>
+
+      <!-- Redes -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted mb-3">Redes & Conectividad</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">MikroTik RouterOS v7</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Ubiquiti UniFi</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">VLANs (IEEE 802.1Q)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">VPN (OpenVPN)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Routing & Switching</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Firewalls Stateful</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">TCP/IP & Subnetting</span>
+        </div>
+      </div>
+
+      <!-- Servidores & Sistemas -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted mb-3">Sistemas & Infraestructura</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Windows Server (AD DS)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Directivas de Grupo (GPOs)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">DNS & DHCP Server</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Linux (Ubuntu Server)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Docker</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Zabbix 7.0 LTS</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">VirtualBox & GNS3</span>
+        </div>
+      </div>
+
+      <!-- Desarrollo & Idiomas -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted mb-3">Desarrollo & Idiomas</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Python 3</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Bash Scripting</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">SQL (PostgreSQL)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Git & GitHub</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Español (Nativo)</span>
+          <span class="rounded-full border border-line bg-surface-2 px-4 py-2 text-sm font-medium text-ink">Inglés Técnico (B1)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Timeline -->
+  <section id="experience" class="mx-auto w-full max-w-5xl px-5 py-20 border-t border-line">
+    <div class="grid gap-12 md:grid-cols-2">
+      <!-- Experiencia -->
+      <div>
+        <h3 class="mb-8 text-sm font-semibold uppercase tracking-wider text-muted">
+          Experiencia Laboral
+        </h3>
+        <ol class="relative border-l border-line pl-6 space-y-10">
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">Abril 2025 – Septiembre 2026</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Soporte de TI e Infraestructura de Redes</h4>
+            <p class="text-sm font-medium text-muted">Consejo Profesional de Ciencias Económicas · Mendoza, Argentina</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted">
+              Gestión y optimización de red corporativa con hardware MikroTik y Ubiquiti (VLANs, VPNs OpenVPN). Administración de Active Directory en Windows Server (GPOs, DNS), mantenimiento de servidores Linux/Windows, contenedores Docker y resolución de incidentes N2/N3.
+            </p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">Julio 2024 – Agosto 2024</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Pasante de Desarrollo Web Backend</h4>
+            <p class="text-sm font-medium text-muted">RST - Red de Salud Tecnológica · Mendoza, Argentina</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted">
+              Diseño de endpoints y microservicios RESTful para integración de plataformas de salud digital. Modelado relacional y optimización SQL en entornos colaborativos con Git.
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Educación -->
+      <div>
+        <h3 class="mb-8 text-sm font-semibold uppercase tracking-wider text-muted">
+          Formación Académica
+        </h3>
+        <ol class="relative border-l border-line pl-6 space-y-10">
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">2020 – Presente</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Ingeniería en Sistemas de Información</h4>
+            <p class="text-sm font-medium text-muted">Universidad Tecnológica Nacional (UTN FRM)</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted">
+              5.º año en curso. Proyecto final integrador de grado en desarrollo.
+            </p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">2026 – Presente</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Ruta de Especialización SOC Level 1</h4>
+            <p class="text-sm font-medium text-muted">TryHackMe</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted">
+              Monitoreo de eventos de seguridad, análisis de tráfico de red y detección de intrusiones.
+            </p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">2025 – 2026</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Ruta de Aprendizaje Cyber Security 101</h4>
+            <p class="text-sm font-medium text-muted">TryHackMe (Completada)</p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-[30px] mt-1.5 h-2.5 w-2.5 rounded-full bg-ink"></span>
+            <p class="text-xs uppercase tracking-wide text-muted font-mono">2024 – 2025</p>
+            <h4 class="mt-1 font-bold text-ink text-base">Curso Técnico en Redes (Routing & Switching)</h4>
+            <p class="text-sm font-medium text-muted">Cisco Networking Academy</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="mx-auto w-full max-w-5xl px-5 py-20 border-t border-line">
+    <div class="flex flex-wrap items-end gap-x-3 gap-y-1">
+      <h2 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Certificaciones</h2>
+      <span class="pb-1 text-sm text-muted">Credenciales y validación profesional</span>
+    </div>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- CompTIA Security+ -->
+      <div class="rounded-2xl border border-line bg-surface p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-ink text-base">CompTIA Security+</h3>
+              <p class="text-xs text-muted font-mono mt-0.5">CompTIA · Examen SY0-701</p>
+            </div>
+            <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-800 border border-amber-500/20">
+              En preparación
+            </span>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Preparación activa en arquitectura de seguridad, operaciones defensivas, gestión de incidentes y mitigación de amenazas.
+          </p>
+        </div>
+        <div class="mt-5 text-xs text-muted font-mono">
+          Meta: 2026
+        </div>
+      </div>
+
+      <!-- Cisco Networking Academy -->
+      <div class="rounded-2xl border border-line bg-surface p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-ink text-base">Curso Técnico en Redes</h3>
+              <p class="text-xs text-muted font-mono mt-0.5">Cisco Networking Academy</p>
+            </div>
+            <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 border border-emerald-500/20">
+              Completado
+            </span>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Fundamentos de conmutación, enrutamiento IP, direccionamiento IPv4/IPv6 y configuración de switches/routers.
+          </p>
+        </div>
+        <div class="mt-5 text-xs text-muted font-mono">
+          2025
+        </div>
+      </div>
+
+      <!-- TryHackMe -->
+      <div class="rounded-2xl border border-line bg-surface p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-ink text-base">Cyber Security 101</h3>
+              <p class="text-xs text-muted font-mono mt-0.5">TryHackMe</p>
+            </div>
+            <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 border border-emerald-500/20">
+              Completado
+            </span>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Fundamentos de ciberseguridad, criptografía, seguridad web, forense y redes.
+          </p>
+        </div>
+        <div class="mt-5 text-xs text-muted font-mono">
+          2026
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="mx-auto w-full max-w-5xl px-5">
+    <div class="grid grid-cols-2 gap-8 border-y border-line py-12 sm:grid-cols-4">
+      <div>
+        <p class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">3</p>
+        <p class="mt-1 text-sm text-muted">Proyectos documentados</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">2</p>
+        <p class="mt-1 text-sm text-muted">Experiencias profesionales</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">18+</p>
+        <p class="mt-1 text-sm text-muted">Tecnologías aplicadas</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">5</p>
+        <p class="mt-1 text-sm text-muted">Años formación ingeniería</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section ("Let's talk" / "Hablemos") -->
+  <section id="contact" class="mx-auto w-full max-w-5xl px-5 py-24">
+    <div class="flex items-center justify-between gap-6">
+      <h2 class="text-5xl font-bold tracking-tight text-ink sm:text-7xl">Hablemos</h2>
+      <span class="hidden text-5xl font-light text-ink sm:block" aria-hidden="true">→</span>
+    </div>
+    <p class="mt-4 max-w-md text-base text-muted">
+      ¿Tenés una oportunidad laboral, consulta o proyecto de infraestructura en mente? Ponete en contacto conmigo.
+    </p>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2">
+      <!-- Quick Copy Card -->
+      <div class="rounded-2xl border border-line bg-surface p-7 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-muted">Email directo</span>
+          <p class="mt-2 text-lg sm:text-xl font-bold text-ink select-all">
+            vazquezjuanfrancisco49@gmail.com
+          </p>
+          <p class="mt-2 text-sm text-muted">
+            Podés escribirme directamente o copiar mi dirección con un solo click.
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button
+            type="button"
+            id="copy-email-btn"
+            class="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold text-paper transition-opacity hover:opacity-85 shadow-sm"
+          >
+            Copiar Email
+          </button>
+          <a
+            href="mailto:vazquezjuanfrancisco49@gmail.com"
+            class="rounded-full border border-line bg-surface-2 px-5 py-2.5 text-xs font-semibold text-ink transition-colors hover:border-ink"
+          >
+            Abrir correo ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Links & Socials -->
+      <div class="rounded-2xl border border-line bg-surface p-7 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-muted">Canales Profesionales</span>
+          <p class="mt-2 text-sm text-muted">
+            Conectemos a través de redes profesionales o explorá el código de mis laboratorios.
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-3">
+          <a
+            href="https://linkedin.com/in/juan-francisco-vazquez-0aaa94218"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="flex items-center justify-between p-3 rounded-xl border border-line bg-surface-2 hover:border-ink transition-colors text-sm font-semibold text-ink"
+          >
+            <span>LinkedIn Profile</span>
+            <span class="text-muted font-normal">in/juan-francisco-vazquez ↗</span>
+          </a>
+          <a
+            href="https://github.com/Jusnock"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="flex items-center justify-between p-3 rounded-xl border border-line bg-surface-2 hover:border-ink transition-colors text-sm font-semibold text-ink"
+          >
+            <span>GitHub Repositories</span>
+            <span class="text-muted font-normal">github.com/Jusnock ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-line py-8 text-center text-xs text-muted">
+    <p>© 2026 Juan Francisco Vazquez · Mendoza, Argentina.</p>
+    <p class="mt-1 text-[11px] opacity-75">Diseño editorial minimalista inspirado en papel y tinta.</p>
+  </footer>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+    <div class="bg-paper border border-line rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8">
+      <button
+        type="button"
+        id="close-modal-btn"
+        class="absolute top-5 right-5 text-sm font-bold text-ink p-2 rounded-full hover:bg-surface-2 transition-colors"
+        aria-label="Cerrar modal"
+      >
+        ✕
+      </button>
+
+      <div id="modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Live Mendoza Time
+    function updateMendozaTime() {
+      try {
+        const timeEl = document.getElementById('live-time');
+        if (timeEl) {
+          timeEl.textContent = new Intl.DateTimeFormat('es-AR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+            timeZone: 'America/Argentina/Mendoza'
+          }).format(new Date());
+        }
+      } catch (e) {}
+    }
+    updateMendozaTime();
+    setInterval(updateMendozaTime, 15000);
+
+    // Header scroll background blur
+    const header = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('bg-paper/90', 'backdrop-blur', 'border-line');
+        header.classList.remove('border-transparent');
+      } else {
+        header.classList.remove('bg-paper/90', 'backdrop-blur', 'border-line');
+        header.classList.add('border-transparent');
+      }
+    });
+
+    // Menu Overlay Toggle
+    const openMenuBtn = document.getElementById('open-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    openMenuBtn.addEventListener('click', () => {
+      menuOverlay.classList.remove('hidden');
+      menuOverlay.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMenu() {
+      menuOverlay.classList.add('hidden');
+      menuOverlay.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    closeMenuBtn.addEventListener('click', closeMenu);
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Copy Email Feedback
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    copyEmailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('vazquezjuanfrancisco49@gmail.com').then(() => {
+        copyEmailBtn.textContent = '¡Email copiado!';
+        setTimeout(() => {
+          copyEmailBtn.textContent = 'Copiar Email';
+        }, 2500);
+      });
+    });
+
+    // Project Data for Modal
+    const PROJECTS = {
+      'soc-lab': {
+        title: 'Enterprise SOC & Purple Team Simulation Lab',
+        category: 'Ciberseguridad Defensiva & Ofensiva · Purple Team',
+        summary: 'Laboratorio práctico de emulación de adversarios (Kali Linux), telemetría de autenticación en endpoints y detección/contención en Wazuh SIEM/EDR.',
+        details: [
+          'Topología de red Dual-NIC en VirtualBox con subred privada aislada 192.168.56.0/24.',
+          'Emulación de intrusión de fuerza bruta SSH (MITRE ATT&CK T1110.001) con Hydra sobre demonios sshd-session.',
+          'Ingeniería de detección mediante reglas Sigma (YAML) y reglas personalizadas en Wazuh XML (Regla 100010, Nivel 10).',
+          'Respuesta activa automatizada (Active Response) que inyecta bloqueos dinámicos en iptables mitigando el ataque en tiempo real.',
+          'Playbook de Respuesta a Incidentes PB-01 bajo estándar NIST SP 800-61 / SANS.'
+        ],
+        tags: ['Wazuh SIEM/EDR', 'MITRE ATT&CK', 'Sigma Rules', 'Sysmon', 'Active Response', 'Hydra', 'VirtualBox'],
+        repoUrl: 'https://github.com/Jusnock/purple-team-soc-lab',
+        docUrl: 'proyectos/purple-team-soc-lab/'
+      },
+      'network-lab': {
+        title: 'Diseño y Seguridad de Red Empresarial Virtualizada',
+        category: 'Infraestructura de Redes & Conectividad Corporativa',
+        summary: 'Infraestructura corporativa multicapa completamente emulada en GNS3 y Open vSwitch para 150 usuarios corporativos.',
+        details: [
+          'Router central MikroTik Cloud Hosted Router (CHR) con RouterOS v7 gestionando el enrutamiento inter-VLAN.',
+          'Segmentación en 5 VLANs aisladas (Usuarios, Gestión, Servidores, DMZ y Directorio Corporativo) con políticas de firewall stateful.',
+          'Windows Server 2022 DC con Active Directory (AD DS), Directivas de Grupo (GPOs) y servidor DNS/DHCP interno.',
+          'Monitoreo en tiempo real con servidor Zabbix 7.0 LTS mediante sondeo SNMP.',
+          'Acceso remoto seguro para teletrabajo mediante túneles VPN cifrados con OpenVPN.'
+        ],
+        tags: ['MikroTik RouterOS v7', 'Open vSwitch', 'Windows Server 2022', 'Active Directory', 'Zabbix 7.0', 'OpenVPN', 'GNS3'],
+        pdfUrl: 'assets/Proyecto-Red-Memoria-Tecnica.pdf',
+        docUrl: 'proyectos/red-empresarial-virtualizada/'
+      },
+      'pyrecon-tool': {
+        title: 'PyRecon-Tool — Network Reconnaissance CLI',
+        category: 'Herramienta CLI · Open Source en Python',
+        summary: 'CLI para auditoría de superficie de ataque que automatiza el reconocimiento pasivo y activo en un único pipeline.',
+        details: [
+          'Enumeración pasiva de subdominios consultando APIs de inteligencia de amenazas sin alertar al objetivo.',
+          'Host discovery activo mediante forjado y transmisión de tramas ICMP Echo Request de bajo nivel con Scapy.',
+          'Escaneo de puertos TCP concurrentes mediante sockets nativos y multi-threading.',
+          'Banner grabbing para identificar versiones y tecnologías de servicios de red expuestos.'
+        ],
+        tags: ['Python 3', 'Scapy', 'Sockets TCP', 'Network Recon', 'CLI', 'Concurrency'],
+        repoUrl: 'https://github.com/Jusnock/PyRecon-Tool',
+        docUrl: 'proyectos/pyrecon-tool/'
+      }
+    };
+
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.getElementById('modal-content');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    function openProjectModal(key) {
+      const p = PROJECTS[key];
+      if (!p) return;
+
+      let linksHtml = '';
+      if (p.repoUrl) {
+        linksHtml += `<a href="${p.repoUrl}" target="_blank" class="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-paper hover:opacity-85 transition-opacity">Ver Repositorio en GitHub ↗</a>`;
+      }
+      if (p.pdfUrl) {
+        linksHtml += `<a href="${p.pdfUrl}" target="_blank" class="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-paper hover:opacity-85 transition-opacity">Descargar Memoria Técnica (PDF) ↓</a>`;
+      }
+      if (p.docUrl) {
+        linksHtml += `<a href="${p.docUrl}" class="rounded-full border border-line bg-surface-2 px-5 py-2 text-xs font-semibold text-ink hover:border-ink transition-colors">Ver Documentación Completa →</a>`;
+      }
+
+      const detailsList = p.details.map(d => `<li class="flex items-start gap-2 text-sm text-ink"><span class="text-emerald-600 font-bold">✓</span><span>${d}</span></li>`).join('');
+      const tagsList = p.tags.map(t => `<span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-mono text-muted">${t}</span>`).join('');
+
+      modalContent.innerHTML = `
+        <span class="text-xs font-semibold uppercase tracking-wider text-muted font-mono">${p.category}</span>
+        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-ink mt-1.5">${p.title}</h3>
+        <p class="mt-3 text-sm text-muted leading-relaxed">${p.summary}</p>
+
+        <div class="mt-6 border-t border-line pt-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-ink mb-3">Aspectos Clave & Arquitectura</h4>
+          <ul class="space-y-2.5">
+            ${detailsList}
+          </ul>
+        </div>
+
+        <div class="mt-6 border-t border-line pt-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-ink mb-2.5">Stack Tecnológico</h4>
+          <div class="flex flex-wrap gap-2">
+            ${tagsList}
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3 pt-4 border-t border-line">
+          ${linksHtml}
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.classList.add('hidden');
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>

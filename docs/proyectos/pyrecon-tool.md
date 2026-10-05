@@ -1,17 +1,21 @@
-# PyRecon-Tool — Herramienta de Reconocimiento de Redes & Ciberseguridad
+# PyRecon-Tool — Network Reconnaissance CLI
 
-<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-  <span class="badge-tag">Python 3</span>
-  <span class="badge-tag">Scapy</span>
-  <span class="badge-tag">Sockets TCP</span>
-  <span class="badge-tag">Requests</span>
-  <span class="badge-tag">Network Recon</span>
-  <span class="badge-tag">Open Source</span>
+<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+  <span class="tag-badge tag-badge-accent">Herramienta CLI · Open Source</span>
+  <span class="tag-badge">Python 3</span>
+  <span class="tag-badge">Scapy</span>
+  <span class="tag-badge">Sockets TCP</span>
+  <span class="tag-badge">Network Recon</span>
+  <span class="tag-badge">Banner Grabbing</span>
 </div>
 
-<div style="margin: 20px 0;">
-  <a href="https://github.com/Jusnock/PyRecon-Tool" target="_blank" class="btn-cv">
-    Ver Repositorio en GitHub (PyRecon-Tool)
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+  <a href="https://github.com/Jusnock/PyRecon-Tool" target="_blank" rel="noopener" class="btn-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    Ver Repositorio en GitHub ↗
+  </a>
+  <a href="../" class="btn-secondary">
+    ← Volver a Proyectos
   </a>
 </div>
 

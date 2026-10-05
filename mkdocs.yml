@@ -1,5 +1,5 @@
-site_name: "Juan Francisco Vazquez | Docs & Labs"
-site_description: "Documentación técnica, casos de estudio en redes, infraestructura SysAdmin y laboratorios de Ciberseguridad."
+site_name: "Juan Francisco Vazquez | Portfolio & Labs"
+site_description: "Portafolio profesional y documentación técnica en Redes Corporativas, Administración de Sistemas (SysAdmin) y Ciberseguridad."
 site_author: "Juan Francisco Vazquez"
 site_url: "https://jusnock.github.io/"
 
@@ -8,24 +8,28 @@ repo_url: "https://github.com/Jusnock"
 
 theme:
   name: material
+  custom_dir: overrides
   language: es
   palette:
     - scheme: slate
-      primary: slate
-      accent: indigo
+      primary: black
+      accent: cyan
       toggle:
         icon: material/weather-night
-        name: Modo claro
+        name: Cambiar a modo claro
     - scheme: default
       primary: slate
-      accent: indigo
+      accent: cyan
       toggle:
         icon: material/weather-sunny
-        name: Modo oscuro
+        name: Cambiar a modo oscuro
   font:
     text: Plus Jakarta Sans
     code: JetBrains Mono
   features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - navigation.tabs
     - navigation.sections
     - navigation.expand
@@ -76,6 +80,7 @@ nav:
   - "Ciberseguridad": "ciberseguridad.md"
   - "Proyectos":
       - "Índice de Proyectos": "proyectos/index.md"
+      - "Enterprise SOC & Purple Team Lab": "proyectos/purple-team-soc-lab.md"
       - "Red Empresarial Virtualizada": "proyectos/red-empresarial-virtualizada.md"
       - "PyRecon-Tool": "proyectos/pyrecon-tool.md"
   - "Certificaciones & Formación": "certificaciones.md"
