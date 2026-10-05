@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # PyRecon-Tool — Network Reconnaissance CLI
 
 <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">

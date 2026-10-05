@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Diseño, Implementación y Seguridad de Red Empresarial Virtualizada
 
 <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">

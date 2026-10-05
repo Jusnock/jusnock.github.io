@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Enterprise SOC & Purple Team Simulation Lab
 
 <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">

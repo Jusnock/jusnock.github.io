@@ -11,18 +11,9 @@ theme:
   custom_dir: overrides
   language: es
   palette:
-    - scheme: slate
-      primary: black
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Cambiar a modo claro
     - scheme: default
-      primary: slate
-      accent: cyan
-      toggle:
-        icon: material/weather-sunny
-        name: Cambiar a modo oscuro
+      primary: white
+      accent: black
   font:
     text: Plus Jakarta Sans
     code: JetBrains Mono
@@ -73,26 +64,3 @@ markdown_extensions:
   - toc:
       permalink: true
 
-nav:
-  - "Inicio": "index.md"
-  - "Perfil & CV": "sobre-mi.md"
-  - "Redes e Infraestructura": "redes-infra.md"
-  - "Ciberseguridad": "ciberseguridad.md"
-  - "Proyectos":
-      - "Índice de Proyectos": "proyectos/index.md"
-      - "Enterprise SOC & Purple Team Lab": "proyectos/purple-team-soc-lab.md"
-      - "Red Empresarial Virtualizada": "proyectos/red-empresarial-virtualizada.md"
-      - "PyRecon-Tool": "proyectos/pyrecon-tool.md"
-  - "Certificaciones & Formación": "certificaciones.md"
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Jusnock
-      name: GitHub
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/juan-francisco-vazquez-0aaa94218
-      name: LinkedIn
-    - icon: fontawesome/solid/envelope
-      link: mailto:vazquezjuanfrancisco49@gmail.com
-      name: Email
