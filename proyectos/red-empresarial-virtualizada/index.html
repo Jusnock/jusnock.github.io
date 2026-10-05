@@ -1,0 +1,973 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portafolio profesional y documentación técnica en Redes Corporativas, Administración de Sistemas (SysAdmin) y Ciberseguridad.">
+      
+      
+        <meta name="author" content="Juan Francisco Vazquez">
+      
+      
+        <link rel="canonical" href="https://jusnock.github.io/proyectos/red-empresarial-virtualizada/">
+      
+      
+        <link rel="prev" href="../pyrecon-tool/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/jv_logo_transparent.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Diseño, Implementación y Seguridad de Red Empresarial Virtualizada - Juan Francisco Vazquez | Portfolio & Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diseno-implementacion-y-seguridad-de-red-empresarial-virtualizada" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Juan Francisco Vazquez | Portfolio &amp; Labs" class="md-header__button md-logo" aria-label="Juan Francisco Vazquez | Portfolio & Labs" data-md-component="logo">
+      
+  <img src="../../assets/jv_logo_transparent.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Juan Francisco Vazquez | Portfolio & Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diseño, Implementación y Seguridad de Red Empresarial Virtualizada
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Jusnock" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Jusnock/jusnock.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Juan Francisco Vazquez | Portfolio &amp; Labs" class="md-nav__button md-logo" aria-label="Juan Francisco Vazquez | Portfolio & Labs" data-md-component="logo">
+      
+  <img src="../../assets/jv_logo_transparent.png" alt="logo">
+
+    </a>
+    Juan Francisco Vazquez | Portfolio & Labs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Jusnock" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Jusnock/jusnock.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../purple-team-soc-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enterprise SOC &amp; Purple Team Simulation Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyrecon-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyRecon-Tool — Network Reconnaissance CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño, Implementación y Seguridad de Red Empresarial Virtualizada
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño, Implementación y Seguridad de Red Empresarial Virtualizada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-de-red-y-segmentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topología de Red y Segmentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topología de Red y Segmentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esquema-de-direccionamiento-y-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema de Direccionamiento y Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-tecnicos-implementados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulos Técnicos Implementados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulos Técnicos Implementados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conmutacion-y-enrutamiento-open-vswitch-mikrotik-chr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Conmutación y Enrutamiento (Open vSwitch + MikroTik CHR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-servicios-corporativos-de-identidad-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Servicios Corporativos de Identidad y Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoreo-y-visibilidad-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Monitoreo y Visibilidad de Infraestructura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-seguridad-de-red-y-filtrado-perimetral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Seguridad de Red y Filtrado Perimetral
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-publicacion-en-dmz-y-acceso-remoto-con-openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Publicación en DMZ y Acceso Remoto con OpenVPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-y-pruebas-de-seguridad-pentesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación y Pruebas de Seguridad (Pentesting)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-de-red-y-segmentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topología de Red y Segmentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topología de Red y Segmentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esquema-de-direccionamiento-y-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema de Direccionamiento y Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-tecnicos-implementados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulos Técnicos Implementados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulos Técnicos Implementados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conmutacion-y-enrutamiento-open-vswitch-mikrotik-chr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Conmutación y Enrutamiento (Open vSwitch + MikroTik CHR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-servicios-corporativos-de-identidad-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Servicios Corporativos de Identidad y Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoreo-y-visibilidad-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Monitoreo y Visibilidad de Infraestructura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-seguridad-de-red-y-filtrado-perimetral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Seguridad de Red y Filtrado Perimetral
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-publicacion-en-dmz-y-acceso-remoto-con-openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Publicación en DMZ y Acceso Remoto con OpenVPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-y-pruebas-de-seguridad-pentesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación y Pruebas de Seguridad (Pentesting)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="diseno-implementacion-y-seguridad-de-red-empresarial-virtualizada">Diseño, Implementación y Seguridad de Red Empresarial Virtualizada</h1>
+<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+  <span class="tag-badge tag-badge-success">Proyecto de Grado · Memoria de 38 Págs</span>
+  <span class="tag-badge">MikroTik RouterOS v7</span>
+  <span class="tag-badge">Open vSwitch</span>
+  <span class="tag-badge">Windows Server AD</span>
+  <span class="tag-badge">Zabbix 7.0</span>
+  <span class="tag-badge">OpenVPN</span>
+  <span class="tag-badge">GNS3</span>
+</div>
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+  <a href="../../assets/Proyecto-Red-Memoria-Tecnica.pdf" target="_blank" download="Proyecto-Red-Memoria-Tecnica.pdf" class="btn-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    Descargar Memoria Técnica Completa (PDF · 38 Páginas)
+  </a>
+  <a href="/" class="btn-secondary">
+    ← Volver a Proyectos
+  </a>
+</div>
+
+<h2 id="resumen-ejecutivo">Resumen Ejecutivo</h2>
+<p>Proyecto integral de ingeniería enfocado en el diseño, despliegue, monitoreo y aseguramiento de una infraestructura de red empresarial multicapa completamente virtualizada sobre <strong>GNS3</strong> y <strong>Open vSwitch (OVS)</strong>, gobernada por un router central <strong>MikroTik Cloud Hosted Router (CHR v7)</strong>.</p>
+<p>El proyecto abarca desde la segmentación lógica en VLANs y servicios de producción corporativos (Active Directory, DNS, Zabbix, DHCP corporativo) hasta políticas de filtrado stateful en firewall y acceso remoto seguro mediante <strong>OpenVPN</strong>.</p>
+<hr />
+<h2 id="topologia-de-red-y-segmentacion">Topología de Red y Segmentación</h2>
+<p>La red se estructuró en 5 zonas de seguridad lógicamente aisladas a nivel de enlace de datos (802.1Q) y filtradas mediante políticas de mínimo privilegio en el firewall del router:</p>
+<pre class="mermaid"><code>graph TD
+    WAN((Internet / WAN)) --&gt; Router[MikroTik CHR v7 Router Core]
+    Router --&gt; OVS[Open vSwitch Bridge Trunk 802.1Q]
+
+    OVS --&gt; VLAN10[VLAN 10 · Usuarios / Workstations&lt;br/&gt;192.168.10.0/24]
+    OVS --&gt; VLAN20[VLAN 20 · Gestión de Red&lt;br/&gt;192.168.20.0/24]
+    OVS --&gt; VLAN30[VLAN 30 · Servidores &amp; Monitoreo&lt;br/&gt;Zabbix Server, Servidores App&lt;br/&gt;192.168.30.0/24]
+    OVS --&gt; VLAN40[VLAN 40 · DMZ Pública&lt;br/&gt;Nginx Web Server&lt;br/&gt;192.168.40.0/24]
+    OVS --&gt; VLAN99[VLAN 99 · Core &amp; Directorio&lt;br/&gt;Windows Server DC01 &amp; DNS&lt;br/&gt;192.168.99.0/24]
+
+    VPN[Usuarios Remotos] -.-&gt;|OpenVPN TLS| Router</code></pre>
+<h3 id="esquema-de-direccionamiento-y-roles">Esquema de Direccionamiento y Roles</h3>
+<table>
+<thead>
+<tr>
+<th>Segmento</th>
+<th>VLAN ID</th>
+<th>Rango IP</th>
+<th>Gateway</th>
+<th>Propósito / Servicios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usuarios</strong></td>
+<td><code>VLAN 10</code></td>
+<td><code>192.168.10.0/24</code></td>
+<td><code>192.168.10.1</code></td>
+<td>Estaciones de trabajo de empleados corporativos</td>
+</tr>
+<tr>
+<td><strong>Gestión</strong></td>
+<td><code>VLAN 20</code></td>
+<td><code>192.168.20.0/24</code></td>
+<td><code>192.168.20.1</code></td>
+<td>Segmento exclusivo de administración de red</td>
+</tr>
+<tr>
+<td><strong>Servicios</strong></td>
+<td><code>VLAN 30</code></td>
+<td><code>192.168.30.0/24</code></td>
+<td><code>192.168.30.1</code></td>
+<td>Servidores Zabbix 7.0 y servicios corporativos</td>
+</tr>
+<tr>
+<td><strong>DMZ</strong></td>
+<td><code>VLAN 40</code></td>
+<td><code>192.168.40.0/24</code></td>
+<td><code>192.168.40.1</code></td>
+<td>Servidor Web público (Nginx) expuesto vía DNAT</td>
+</tr>
+<tr>
+<td><strong>Directorio</strong></td>
+<td><code>VLAN 99</code></td>
+<td><code>192.168.99.0/24</code></td>
+<td><code>192.168.99.1</code></td>
+<td>Controlador de Dominio (Windows Server DC01) y DNS</td>
+</tr>
+<tr>
+<td><strong>VPN</strong></td>
+<td><code>ovpn-vpn</code></td>
+<td><code>10.0.0.0/24</code></td>
+<td><code>10.0.0.1</code></td>
+<td>Clientes remotos con túnel cifrado OpenVPN</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="modulos-tecnicos-implementados">Módulos Técnicos Implementados</h2>
+<h3 id="1-conmutacion-y-enrutamiento-open-vswitch-mikrotik-chr">1. Conmutación y Enrutamiento (Open vSwitch + MikroTik CHR)</h3>
+<ul>
+<li>Creación de puente virtual OVS con soporte para etiquetado <strong>IEEE 802.1Q</strong>.</li>
+<li>Configuración de interfaces VLAN, servidores DHCP dedicados por segmento y tablas de enrutamiento inter-VLAN en MikroTik RouterOS v7.</li>
+<li>Implementación de reglas de <strong>NAT Masquerade</strong> hacia WAN y política por defecto <em>Drop All</em> en la cadena forward.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># MikroTik RouterOS v7 - Configuración de Bridge VLAN y Firewall Filter
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/interface bridge add name=bridge-lan vlan-filtering=yes
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>/interface vlan
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>add interface=bridge-lan name=vlan10-usuarios vlan-id=10
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>add interface=bridge-lan name=vlan20-gestion vlan-id=20
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>add interface=bridge-lan name=vlan30-servicios vlan-id=30
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>add interface=bridge-lan name=vlan40-dmz vlan-id=40
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>add interface=bridge-lan name=vlan99-directorio vlan-id=99
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a># Políticas de Firewall (Stateful &amp; Mínimo Privilegio)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>/ip firewall filter
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>add chain=input connection-state=established,related action=accept comment="Aceptar conexiones establecidas"
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>add chain=input connection-state=invalid action=drop comment="Descartar paquetes invalidos"
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>add chain=input protocol=icmp action=accept comment="Permitir ping diagnostico"
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>add chain=input in-interface=vlan20-gestion action=accept comment="Acceso de gestion exclusivo VLAN 20"
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>add chain=input action=drop comment="Bloquear todo otro acceso al router"
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>add chain=forward connection-state=established,related action=accept
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>add chain=forward connection-state=invalid action=drop
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>add chain=forward in-interface=vlan10-usuarios out-interface=ether1 action=accept comment="Salida a Internet"
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>add chain=forward in-interface=vlan10-usuarios out-interface=vlan99-directorio dst-port=53,88,389,445 protocol=tcp action=accept comment="Acceso a AD DS y DNS"
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>add chain=forward in-interface=vlan40-dmz out-interface=!ether1 action=drop comment="Aislar DMZ de redes internas"
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>add chain=forward action=drop comment="Bloquear resto de trafico inter-VLAN"
+</span></code></pre></div>
+<h3 id="2-servicios-corporativos-de-identidad-y-acceso">2. Servicios Corporativos de Identidad y Acceso</h3>
+<ul>
+<li><strong>Active Directory Domain Services (AD DS):</strong> Despliegue de Windows Server DC01, diseño de árbol de Unidades Organizativas (OUs), altas de usuarios y grupos por departamento.</li>
+<li><strong>DNS Corporativo:</strong> Resolución de nombres internos para el dominio corporativo y reenviadores condicionales (<em>DNS Forwarders</em>) a Internet.</li>
+<li><strong>Directivas de Grupo (GPOs):</strong> Aplicación de políticas centralizadas para endurecimiento de estaciones, configuración de proxy y control de unidades de red.</li>
+</ul>
+<h3 id="3-monitoreo-y-visibilidad-de-infraestructura">3. Monitoreo y Visibilidad de Infraestructura</h3>
+<ul>
+<li><strong>Zabbix 7.0 LTS:</strong> Monitorización centralizada de salud de red y servidores mediante agentes Zabbix y consultas SNMP hacia el core router MikroTik.</li>
+<li><strong>WinGate Proxy HTTP:</strong> Control y registro de navegación web para las estaciones de trabajo de usuarios.</li>
+</ul>
+<h3 id="4-seguridad-de-red-y-filtrado-perimetral">4. Seguridad de Red y Filtrado Perimetral</h3>
+<ul>
+<li><strong>Políticas de Firewall Stateful:</strong> Reglas de conexión en MikroTik RouterOS permitiendo solo tráfico establecido/relacionado y bloqueando paquetes inválidos o no autorizados.</li>
+<li><strong>Aislamiento de Zonas:</strong> Segmentación estricta entre VLANs impidiendo que estaciones de trabajo accedan a puertos administrativos o de gestión.</li>
+<li><strong>Control de Acceso Administrativo:</strong> Restricción de servicios de administración (WinBox, SSH) accesibles únicamente desde la VLAN de gestión.</li>
+</ul>
+<h3 id="5-publicacion-en-dmz-y-acceso-remoto-con-openvpn">5. Publicación en DMZ y Acceso Remoto con OpenVPN</h3>
+<ul>
+<li><strong>Aislamiento de DMZ:</strong> Servidor Nginx en VLAN 40 con redirección de puertos (DNAT tcp/80) y regla de bloqueo explícita hacia las subredes internas.</li>
+<li><strong>Túnel VPN Corporativo (OpenVPN):</strong> Servidor VPN sobre RouterOS con cifrado TLS y certificados para teletrabajo seguro de colaboradores remotos.</li>
+</ul>
+<hr />
+<h2 id="validacion-y-pruebas-de-seguridad-pentesting">Validación y Pruebas de Seguridad (Pentesting)</h2>
+<p>El entorno fue auditado ofensivamente desde una máquina <strong>Kali Linux</strong> para verificar la eficacia de los controles:</p>
+<ol>
+<li><strong>Aislamiento Inter-VLAN:</strong> Verificación de que escaneos de red (<code>nmap</code>) desde VLAN 10 no alcanzan servicios de gestión (VLAN 20) ni el core de servidores (VLAN 30/99).</li>
+<li><strong>Defensa perimetral en RouterOS:</strong> Reglas de <em>Rate Limiting</em> y bloqueo ante escaneos de puertos y paquetes TCP anómalos.</li>
+<li><strong>Validación de Túneles VPN:</strong> Confirmación de establecimiento de sesión segura cifrada y verificación del aislamiento de clientes remotos respecto a redes internas sensibles.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

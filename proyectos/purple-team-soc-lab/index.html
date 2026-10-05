@@ -1,0 +1,990 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portafolio profesional y documentación técnica en Redes Corporativas, Administración de Sistemas (SysAdmin) y Ciberseguridad.">
+      
+      
+        <meta name="author" content="Juan Francisco Vazquez">
+      
+      
+        <link rel="canonical" href="https://jusnock.github.io/proyectos/purple-team-soc-lab/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../pyrecon-tool/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/jv_logo_transparent.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Enterprise SOC & Purple Team Simulation Lab - Juan Francisco Vazquez | Portfolio & Labs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enterprise-soc-purple-team-simulation-lab" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Juan Francisco Vazquez | Portfolio &amp; Labs" class="md-header__button md-logo" aria-label="Juan Francisco Vazquez | Portfolio & Labs" data-md-component="logo">
+      
+  <img src="../../assets/jv_logo_transparent.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Juan Francisco Vazquez | Portfolio & Labs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enterprise SOC &amp; Purple Team Simulation Lab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Jusnock" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Jusnock/jusnock.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Juan Francisco Vazquez | Portfolio &amp; Labs" class="md-nav__button md-logo" aria-label="Juan Francisco Vazquez | Portfolio & Labs" data-md-component="logo">
+      
+  <img src="../../assets/jv_logo_transparent.png" alt="logo">
+
+    </a>
+    Juan Francisco Vazquez | Portfolio & Labs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Jusnock" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Jusnock/jusnock.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enterprise SOC &amp; Purple Team Simulation Lab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enterprise SOC &amp; Purple Team Simulation Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen del Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-de-red-dual-nic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topología de Red Dual-NIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-estudio-1-ataque-de-fuerza-bruta-ssh-mitre-t1110001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fase-ofensiva-red-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fase Ofensiva (Red Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deteccion-telemetria-blue-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Detección &amp; Telemetría (Blue Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-contencion-automatizada-active-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Contención Automatizada (Active Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidencias-tecnicas-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencias Técnicas &amp; Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidencias Técnicas &amp; Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ataque-hydra-en-kali-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ataque Hydra en Kali Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-disparo-de-regla-100010-en-wazuh-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Disparo de Regla 100010 en Wazuh SIEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-panel-de-eventos-criticos-nivel-10-t1110001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Panel de Eventos Críticos (Nivel 10 - T1110.001)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-bloqueo-dinamico-por-active-response-iptables-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bloqueo Dinámico por Active Response (iptables Drop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio del Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pyrecon-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyRecon-Tool — Network Reconnaissance CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../red-empresarial-virtualizada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño, Implementación y Seguridad de Red Empresarial Virtualizada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen del Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-de-red-dual-nic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topología de Red Dual-NIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-estudio-1-ataque-de-fuerza-bruta-ssh-mitre-t1110001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fase-ofensiva-red-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fase Ofensiva (Red Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deteccion-telemetria-blue-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Detección &amp; Telemetría (Blue Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-contencion-automatizada-active-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Contención Automatizada (Active Response)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidencias-tecnicas-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencias Técnicas &amp; Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidencias Técnicas &amp; Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ataque-hydra-en-kali-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ataque Hydra en Kali Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-disparo-de-regla-100010-en-wazuh-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Disparo de Regla 100010 en Wazuh SIEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-panel-de-eventos-criticos-nivel-10-t1110001" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Panel de Eventos Críticos (Nivel 10 - T1110.001)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-bloqueo-dinamico-por-active-response-iptables-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bloqueo Dinámico por Active Response (iptables Drop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorio del Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="enterprise-soc-purple-team-simulation-lab">Enterprise SOC &amp; Purple Team Simulation Lab</h1>
+<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+  <span class="tag-badge tag-badge-success">Laboratorio Práctico · Purple Team</span>
+  <span class="tag-badge">Wazuh SIEM/EDR</span>
+  <span class="tag-badge">MITRE ATT&CK</span>
+  <span class="tag-badge">Sigma Rules</span>
+  <span class="tag-badge">Microsoft Sysmon</span>
+  <span class="tag-badge">Active Response</span>
+  <span class="tag-badge">Hydra</span>
+  <span class="tag-badge">VirtualBox</span>
+</div>
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+  <a href="https://github.com/Jusnock/purple-team-soc-lab" target="_blank" rel="noopener" class="btn-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    Ver Repositorio en GitHub ↗
+  </a>
+  <a href="/" class="btn-secondary">
+    ← Volver al Portafolio
+  </a>
+</div>
+
+<h2 id="resumen-del-proyecto">Resumen del Proyecto</h2>
+<p>Laboratorio integral de ciberseguridad enfocado en la <strong>emulación de adversarios</strong> (Red Team), <strong>ingeniería de detección</strong> (<em>Detection-as-Code</em>) y análisis en <strong>SIEM/EDR</strong> (Blue Team) mapeado a la matriz <strong>MITRE ATT&amp;CK</strong>.</p>
+<p>El objetivo del proyecto es reproducir técnicas reales de intrusión en un entorno controlado, analizar la telemetría generada en endpoints Windows y Linux, y construir reglas de detección precisas (Sigma / Wazuh) junto con playbooks de respuesta a incidentes bajo estándar NIST SP 800-61 / SANS.</p>
+<hr />
+<h2 id="topologia-de-red-dual-nic">Topología de Red Dual-NIC</h2>
+<p>El laboratorio se encuentra desplegado en un hipervisor <strong>VirtualBox</strong> utilizando una arquitectura aislada de dos interfaces por máquina para separar la gestión externa del tráfico de ataque y telemetría:</p>
+<ul>
+<li><strong>Adaptador 1 (NAT):</strong> Conectividad a internet para paquetes y actualizaciones.</li>
+<li><strong>Adaptador 2 (Host-Only <code>vboxnet0</code>):</strong> Subred privada <code>192.168.56.0/24</code> dedicada exclusivamente al tráfico de emulación, telemetría e ingesta de logs.</li>
+</ul>
+<pre class="mermaid"><code>graph TD
+    subgraph Host["Host de Control (192.168.56.1)"]
+        Hypervisor[Hipervisor VirtualBox / Navegador de Gestión]
+    end
+
+    subgraph LabNet["Subred Aislada vboxnet0 (192.168.56.0/24)"]
+        Kali["Red Team: Kali Linux&lt;br/&gt;192.168.56.20&lt;br/&gt;Hydra, Nmap, Metasploit"]
+        Win11["Víctima Windows: Windows 11 Pro&lt;br/&gt;192.168.56.10&lt;br/&gt;Sysmon + ScriptBlock Logging"]
+        UbuntuVictim["Víctima Linux: Ubuntu Server&lt;br/&gt;192.168.56.15&lt;br/&gt;OpenSSH, Web App"]
+        Wazuh["SOC SIEM: Wazuh 4.x All-in-One&lt;br/&gt;192.168.56.30&lt;br/&gt;Indexer + Manager + Dashboard"]
+    end
+
+    Kali --&gt;|Ataques Brute Force / Escaneo| UbuntuVictim
+    Kali --&gt;|Reconocimiento| Win11
+    UbuntuVictim --&gt;|Telemetría SSH / Journald| Wazuh
+    Win11 --&gt;|Eventos Sysmon EID 1, 3, 7| Wazuh
+    Wazuh --&gt;|Active Response / iptables Drop| UbuntuVictim</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nodo</th>
+<th style="text-align: left;">Sistema Operativo</th>
+<th style="text-align: left;">IP Lab (<code>vboxnet0</code>)</th>
+<th style="text-align: left;">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SOC SIEM</strong></td>
+<td style="text-align: left;">Ubuntu Server 24.04</td>
+<td style="text-align: left;"><code>192.168.56.30</code></td>
+<td style="text-align: left;">Ingesta de logs, correlación y Active Response</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Endpoint Windows</strong></td>
+<td style="text-align: left;">Windows 11 Pro</td>
+<td style="text-align: left;"><code>192.168.56.10</code></td>
+<td style="text-align: left;">Telemetría Sysmon y PowerShell ScriptBlock</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Servidor Linux</strong></td>
+<td style="text-align: left;">Ubuntu Server 24.04</td>
+<td style="text-align: left;"><code>192.168.56.15</code></td>
+<td style="text-align: left;">Servicios SSH y aplicaciones emuladas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Atacante</strong></td>
+<td style="text-align: left;">Kali Linux</td>
+<td style="text-align: left;"><code>192.168.56.20</code></td>
+<td style="text-align: left;">Emulación de adversarios controlada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="caso-de-estudio-1-ataque-de-fuerza-bruta-ssh-mitre-t1110001">Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)</h2>
+<h3 id="1-fase-ofensiva-red-team">1. Fase Ofensiva (Red Team)</h3>
+<p>Desde la máquina Kali Linux (<code>192.168.56.20</code>), se realizó un reconocimiento con <code>nmap</code> y posterior ataque de fuerza bruta sobre el servicio OpenSSH del servidor Linux (<code>192.168.56.15</code>) utilizando <strong>Hydra</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hydra<span class="w"> </span>-l<span class="w"> </span>osboxes<span class="w"> </span>-P<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>ssh://192.168.56.15<span class="w"> </span>-t<span class="w"> </span><span class="m">4</span>
+</span></code></pre></div>
+<h3 id="2-deteccion-telemetria-blue-team">2. Detección &amp; Telemetría (Blue Team)</h3>
+<p>En Ubuntu 24.04, los intentos fallidos de autenticación SSH son gestionados por el binario <code>sshd-session</code> en lugar del demonio clásico <code>sshd</code>. Se identificaron los logs de evento:
+* <code>Failed password for osboxes from 192.168.56.20 port ... ssh2</code></p>
+<p>Se implementó una <strong>regla Sigma</strong> nativa y una <strong>regla personalizada en Wazuh</strong> (<code>local_rules.xml</code>, Regla 100010):</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">"syslog,sshd,sshd-session,"</span><span class="nt">&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100010"</span><span class="w"> </span><span class="na">level=</span><span class="s">"10"</span><span class="w"> </span><span class="na">frequency=</span><span class="s">"6"</span><span class="w"> </span><span class="na">timeframe=</span><span class="s">"120"</span><span class="nt">&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;if_matched_sid&gt;</span>5716<span class="nt">&lt;/if_matched_sid&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;same_source_ip</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>Posible<span class="w"> </span>ataque<span class="w"> </span>de<span class="w"> </span>fuerza<span class="w"> </span>bruta<span class="w"> </span>SSH<span class="w"> </span>(múltiples<span class="w"> </span>fallos<span class="w"> </span>de<span class="w"> </span>autenticación<span class="w"> </span>sshd-session<span class="w"> </span>desde<span class="w"> </span>$(srcip)).<span class="nt">&lt;/description&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&lt;id&gt;</span>T1110.001<span class="nt">&lt;/id&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&lt;id&gt;</span>T1110<span class="nt">&lt;/id&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&lt;group&gt;</span>authentication_failures,pci_dss_10.2.4,pci_dss_10.2.5,<span class="nt">&lt;/group&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">&lt;/group&gt;</span>
+</span></code></pre></div>
+<h3 id="3-contencion-automatizada-active-response">3. Contención Automatizada (Active Response)</h3>
+<p>Al alcanzarse el umbral de 6 intentos fallidos en 120 segundos, Wazuh dispara automáticamente un comando <strong>Active Response</strong> (<code>firewall-drop</code>) en el agente víctima, insertando una regla dinámica en <code>iptables</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>iptables<span class="w"> </span>-I<span class="w"> </span>INPUT<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.56.20<span class="w"> </span>-j<span class="w"> </span>DROP
+</span></code></pre></div>
+<p>La IP atacante queda inmediatamente aislada por el tiempo configurado, cortando la conexión TCP en curso y mitigando la intrusión en tiempo real.</p>
+<hr />
+<h2 id="evidencias-tecnicas-dashboard">Evidencias Técnicas &amp; Dashboard</h2>
+<h3 id="1-ataque-hydra-en-kali-linux">1. Ataque Hydra en Kali Linux</h3>
+<p><img alt="Hydra Attack" src="../../assets/purple-team-soc-lab/01_hydra_attack_kali.png" /></p>
+<h3 id="2-disparo-de-regla-100010-en-wazuh-siem">2. Disparo de Regla 100010 en Wazuh SIEM</h3>
+<p><img alt="Wazuh Custom Rule" src="../../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png" /></p>
+<h3 id="3-panel-de-eventos-criticos-nivel-10-t1110001">3. Panel de Eventos Críticos (Nivel 10 - T1110.001)</h3>
+<p><img alt="Wazuh Dashboard Level 10" src="../../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png" /></p>
+<h3 id="4-bloqueo-dinamico-por-active-response-iptables-drop">4. Bloqueo Dinámico por Active Response (iptables Drop)</h3>
+<p><img alt="Active Response Drop" src="../../assets/purple-team-soc-lab/05_iptables_firewall_drop.png" /></p>
+<hr />
+<h2 id="repositorio-del-proyecto">Repositorio del Proyecto</h2>
+<p>El código fuente de las reglas Sigma, configuración de Wazuh y los Playbooks de Respuesta a Incidentes (SOPs) se encuentran en GitHub:
+👉 <strong><a href="https://github.com/Jusnock/purple-team-soc-lab">github.com/Jusnock/purple-team-soc-lab</a></strong></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

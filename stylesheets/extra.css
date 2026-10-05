@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root, [data-md-color-scheme="slate"] {
+  --md-default-bg-color: #09090b !important; /* Zinc 950 */
+  --md-default-fg-color: #f4f4f5 !important; /* Zinc 100 */
+  --md-default-fg-color--light: #a1a1aa !important; /* Zinc 400 */
+  --md-default-fg-color--lighter: #52525b !important; /* Zinc 600 */
+  --md-primary-fg-color: #f4f4f5 !important;
+  --md-primary-bg-color: #09090b !important;
+  --md-typeset-color: #f4f4f5 !important;
+  --md-typeset-a-color: #38bdf8 !important; /* Cyan */
+  --md-text-font: "Inter", sans-serif !important;
+  --md-code-font: "JetBrains Mono", monospace !important;
+  
+  --site-surface: #18181b !important; /* Zinc 900 */
+  --site-border: #27272a !important; /* Zinc 800 */
+}
+
+body {
+  background-color: #09090b !important;
+  /* Subtle grid for tech feel */
+  background-size: 40px 40px !important;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+}
+
+/* Header */
+.md-header {
+  background-color: rgba(9, 9, 11, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #f4f4f5 !important;
+  box-shadow: 0 1px 0 0 #27272a !important;
+}
+.md-header__button {
+  color: #a1a1aa !important;
+}
+.md-header__button:hover {
+  color: #f4f4f5 !important;
+}
+
+/* Center Article & Modern Tech Card */
+.md-grid {
+  max-width: 900px !important;
+}
+.md-content {
+  background-color: #18181b !important;
+  padding: 3rem !important;
+  border-radius: 16px !important;
+  border: 1px solid #27272a !important;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Badges / Tags */
+.tag-badge, .badge-tag {
+  background: #09090b !important;
+  color: #a1a1aa !important;
+  border: 1px solid #27272a !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  font-family: var(--md-code-font) !important;
+  font-size: 0.75rem !important;
+}
+.tag-badge-success {
+  background: rgba(52, 211, 153, 0.1) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.2) !important;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none !important;
+}
+.btn-primary {
+  background: #f4f4f5 !important;
+  color: #09090b !important;
+  border: none !important;
+}
+.btn-primary:hover {
+  background: #e4e4e7 !important;
+}
+.btn-secondary {
+  background: #09090b !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #27272a !important;
+}
+.btn-secondary:hover {
+  background: #27272a !important;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  background-color: #09090b !important;
+  border: 1px solid #27272a !important;
+  border-left: 4px solid #38bdf8 !important;
+}
+.md-typeset .admonition-title {
+  background-color: #18181b !important;
+  color: #f4f4f5 !important;
+  border-bottom: 1px solid #27272a !important;
+}
+
+/* Code Blocks */
+.md-typeset pre > code {
+  background-color: #09090b !important;
+  border: 1px solid #27272a !important;
+}
