@@ -10,6 +10,8 @@ theme:
   name: material
   custom_dir: overrides
   language: es
+  logo: assets/jv_logo_minimalist.jpg
+  favicon: assets/jv_logo_minimalist.jpg
   palette:
     - scheme: slate
       primary: black
