@@ -15,6 +15,8 @@ Abrí http://127.0.0.1:8000. Los cambios se recargan automáticamente.
 ## Archivos principales
 
 - `overrides/home.html`: portada, proyectos, experiencia, formación y contacto.
+- `overrides/lab.html` y `docs/stylesheets/lab.css`: diseño del caso de estudio Purple Team, índice y galería de evidencias.
+- `docs/javascripts/lab.js`: copia de comandos e indicación de la sección visible.
 - `docs/stylesheets/home.css`: diseño responsive de la portada.
 - `docs/javascripts/home.js`: menú accesible y copia del email.
 - `docs/javascripts/home-i18n.js`: selector ES/EN y traducciones de la portada; recuerda el idioma en el navegador.

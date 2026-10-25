@@ -1,30 +1,7 @@
 ---
-hide:
-  - navigation
-  - toc
+title: Enterprise SOC & Purple Team Lab
+template: lab.html
 ---
-# Enterprise SOC & Purple Team Simulation Lab
-
-<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
-  <span class="tag-badge tag-badge-success">Laboratorio Práctico · Purple Team</span>
-  <span class="tag-badge">Wazuh SIEM/EDR</span>
-  <span class="tag-badge">MITRE ATT&CK</span>
-  <span class="tag-badge">Sigma Rules</span>
-  <span class="tag-badge">Microsoft Sysmon</span>
-  <span class="tag-badge">Active Response</span>
-  <span class="tag-badge">Hydra</span>
-  <span class="tag-badge">VirtualBox</span>
-</div>
-
-<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
-  <a href="https://github.com/Jusnock/purple-team-soc-lab" target="_blank" rel="noopener" class="btn-primary">
-    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    Ver Repositorio en GitHub ↗
-  </a>
-  <a href="/" class="btn-secondary">
-    ← Volver al Portafolio
-  </a>
-</div>
 
 ## Resumen del Proyecto
 
@@ -41,25 +18,16 @@ El laboratorio se encuentra desplegado en un hipervisor **VirtualBox** utilizand
 - **Adaptador 1 (NAT):** Conectividad a internet para paquetes y actualizaciones.
 - **Adaptador 2 (Host-Only `vboxnet0`):** Subred privada `192.168.56.0/24` dedicada exclusivamente al tráfico de emulación, telemetría e ingesta de logs.
 
-```mermaid
-graph TD
-    subgraph Host["Host de Control (192.168.56.1)"]
-        Hypervisor[Hipervisor VirtualBox / Navegador de Gestión]
-    end
-
-    subgraph LabNet["Subred Aislada vboxnet0 (192.168.56.0/24)"]
-        Kali["Red Team: Kali Linux<br/>192.168.56.20<br/>Hydra, Nmap, Metasploit"]
-        Win11["Víctima Windows: Windows 11 Pro<br/>192.168.56.10<br/>Sysmon + ScriptBlock Logging"]
-        UbuntuVictim["Víctima Linux: Ubuntu Server<br/>192.168.56.15<br/>OpenSSH, Web App"]
-        Wazuh["SOC SIEM: Wazuh 4.x All-in-One<br/>192.168.56.30<br/>Indexer + Manager + Dashboard"]
-    end
-
-    Kali -->|Ataques Brute Force / Escaneo| UbuntuVictim
-    Kali -->|Reconocimiento| Win11
-    UbuntuVictim -->|Telemetría SSH / Journald| Wazuh
-    Win11 -->|Eventos Sysmon EID 1, 3, 7| Wazuh
-    Wazuh -->|Active Response / iptables Drop| UbuntuVictim
-```
+<div class="lab-topology" role="group" aria-label="Topología del laboratorio en la subred aislada 192.168.56.0/24">
+<p class="topology-label">VIRTUALBOX / HOST-ONLY / 192.168.56.0/24 · HOST DE CONTROL: 192.168.56.1</p>
+<div class="topology-grid">
+<div class="topology-node offensive"><span>EMULACIÓN</span><strong>Kali Linux</strong><code>192.168.56.20</code><small>Hydra · Nmap · Metasploit</small></div>
+<div class="topology-node"><span>ENDPOINT WINDOWS</span><strong>Windows 11 Pro</strong><code>192.168.56.10</code><small>Sysmon · ScriptBlock Logging</small></div>
+<div class="topology-node"><span>ENDPOINT LINUX</span><strong>Ubuntu Server</strong><code>192.168.56.15</code><small>OpenSSH · Web App</small></div>
+<div class="topology-node defensive"><span>DETECCIÓN Y RESPUESTA</span><strong>Wazuh 4.x</strong><code>192.168.56.30</code><small>Indexer · Manager · Dashboard</small></div>
+</div>
+<p class="topology-path">Emulación de ataques <span aria-hidden="true">→</span> Telemetría de endpoints <span aria-hidden="true">→</span> SIEM <span aria-hidden="true">→</span> Contención en Linux</p>
+</div>
 
 | Nodo | Sistema Operativo | IP Lab (`vboxnet0`) | Función |
 | :--- | :--- | :--- | :--- |
@@ -113,20 +81,40 @@ La IP atacante queda inmediatamente aislada por el tiempo configurado, cortando 
 
 ## Evidencias Técnicas & Dashboard
 
-### 1. Ataque Hydra en Kali Linux
-![Hydra Attack](../assets/purple-team-soc-lab/01_hydra_attack_kali.png)
+<div class="evidence-grid" markdown="1">
 
-### 2. Disparo de Regla 100010 en Wazuh SIEM
-![Wazuh Custom Rule](../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png)
+<figure class="evidence-card" markdown="1">
 
-### 3. Panel de Eventos Críticos (Nivel 10 - T1110.001)
-![Wazuh Dashboard Level 10](../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png)
+[![Terminal de Kali Linux ejecutando el ataque de fuerza bruta SSH con Hydra](../assets/purple-team-soc-lab/01_hydra_attack_kali.png){ loading=lazy }](../assets/purple-team-soc-lab/01_hydra_attack_kali.png)
 
-### 4. Bloqueo Dinámico por Active Response (iptables Drop)
-![Active Response Drop](../assets/purple-team-soc-lab/05_iptables_firewall_drop.png)
+<figcaption><span>01 / EMULACIÓN</span><strong>Ataque Hydra en Kali Linux</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+
+<figure class="evidence-card" markdown="1">
+
+[![Configuración de la regla personalizada 100010 en Wazuh](../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png){ loading=lazy }](../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png)
+
+<figcaption><span>02 / DETECCIÓN</span><strong>Regla 100010 en Wazuh SIEM</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+
+<figure class="evidence-card" markdown="1">
+
+[![Panel de eventos críticos en Wazuh para MITRE T1110.001](../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png){ loading=lazy }](../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png)
+
+<figcaption><span>03 / CORRELACIÓN</span><strong>Eventos críticos de nivel 10</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+
+<figure class="evidence-card" markdown="1">
+
+[![Regla iptables DROP insertada mediante Active Response](../assets/purple-team-soc-lab/05_iptables_firewall_drop.png){ loading=lazy }](../assets/purple-team-soc-lab/05_iptables_firewall_drop.png)
+
+<figcaption><span>04 / CONTENCIÓN</span><strong>Bloqueo dinámico del atacante</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+
+</div>
 
 ---
 
 ## Repositorio del Proyecto
 El código fuente de las reglas Sigma, configuración de Wazuh y los Playbooks de Respuesta a Incidentes (SOPs) se encuentran en GitHub:
-👉 **[github.com/Jusnock/purple-team-soc-lab](https://github.com/Jusnock/purple-team-soc-lab)**
+**[github.com/Jusnock/purple-team-soc-lab](https://github.com/Jusnock/purple-team-soc-lab)**
