@@ -1074,3 +1074,28 @@ h2 {
   .student-role { font-size: 16px; }
   .brand-sub { max-width: 170px; font-size: 6px; line-height: 1.5; }
 }
+
+/* Language control stays visible next to the mobile menu. */
+.nav-wrap { gap: 20px; }
+.language-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  font: 12px var(--mono);
+  cursor: pointer;
+}
+.language-toggle:hover { background: var(--surface); border-color: var(--accent); }
+@media (max-width: 800px) {
+  .nav-wrap { gap: 10px; }
+  .brand { gap: 10px; letter-spacing: 1px; }
+  .header .brand-mark { font-size: 32px; }
+  .language-toggle { padding: 10px; }
+  .menu-toggle { flex-shrink: 0; gap: 6px; padding: 10px; }
+}
+@media (max-width: 380px) {
+  .header .brand { font-size: 9px; }
+  .header .brand-sub { max-width: 110px; font-size: 5px; }
+}

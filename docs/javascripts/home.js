@@ -25,8 +25,10 @@ document.querySelector("#copy-email").addEventListener("click", async () => {
   const status = document.querySelector("#copy-status");
   try {
     await navigator.clipboard.writeText("vazquezjuanfrancisco49@gmail.com");
-    status.textContent = "Email copiado";
+    status.dataset.copied = "true";
+    status.textContent = document.documentElement.lang === "en" ? "Email copied" : "Email copiado";
   } catch {
+    status.dataset.copied = "false";
     status.textContent = "vazquezjuanfrancisco49@gmail.com";
   }
 });

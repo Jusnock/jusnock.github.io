@@ -17,6 +17,7 @@ Abrí http://127.0.0.1:8000. Los cambios se recargan automáticamente.
 - `overrides/home.html`: portada, proyectos, experiencia, formación y contacto.
 - `docs/stylesheets/home.css`: diseño responsive de la portada.
 - `docs/javascripts/home.js`: menú accesible y copia del email.
+- `docs/javascripts/home-i18n.js`: selector ES/EN y traducciones de la portada; recuerda el idioma en el navegador.
 - `docs/stylesheets/extra.css`: estilos de la documentación técnica.
 - `docs/proyectos/`: casos de estudio en Markdown.
 - `docs/assets/`: CV, memoria técnica y evidencias de los laboratorios.
@@ -41,3 +42,7 @@ El workflow en `.github/workflows/` publica en GitHub Pages cuando se hace push 
 ## Agregar un proyecto
 
 Creá un Markdown en `docs/proyectos/`, agregá sus recursos a `docs/assets/` y enlazalo desde `overrides/home.html`. Conservá las rutas con el filtro `url` de MkDocs en la plantilla para resolver los recursos correctamente.
+
+## Idiomas
+
+El botón EN/ES de la cabecera alterna los textos de la portada sin recargar la página. El idioma inicial es español; la elección se conserva en `localStorage` cuando está disponible. Para modificar las traducciones, editá `docs/javascripts/home-i18n.js`. Los casos de estudio y los PDFs conservan su contenido en español.
