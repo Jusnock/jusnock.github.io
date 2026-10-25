@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise SOC & Purple Team Lab · Juan Francisco Vazquez</title>
+<meta name="description" content="Caso de estudio de un laboratorio Purple Team: emulación de fuerza bruta SSH, detección con Wazuh y contención automatizada.">
+<meta name="theme-color" content="#101319"><link rel="canonical" href="https://jusnock.github.io/proyectos/purple-team-soc-lab/">
+<link rel="icon" href="../../assets/jv_logo_transparent.png">
+<link rel="stylesheet" href="../../stylesheets/home.css">
+<link rel="stylesheet" href="../../stylesheets/lab.css">
+<script src="../../javascripts/lab.js" defer></script>
+</head>
+<body class="lab-page">
+<a class="skip-link" href="#caso">Saltar al caso de estudio</a>
+<header class="lab-header"><div class="container"><a class="brand" href="../.."><span class="brand-mark">jv<span>.</span></span><span>JUAN VAZQUEZ<span class="brand-sub">PORTFOLIO / LABORATORIOS</span></span></a><a class="lab-back" href="../..#projects">← Volver a proyectos</a></div></header>
+<main id="caso">
+<section class="lab-hero container" aria-labelledby="lab-title">
+<div><p class="eyebrow"><span class="status-dot"></span> CASO DE ESTUDIO / 01</p><p class="lab-category">CIBERSEGURIDAD · LABORATORIO PRÁCTICO</p><h1 id="lab-title">Enterprise SOC <span>& Purple Team.</span></h1><p class="lab-lead">Del ataque a la respuesta: emular, detectar y contener una intrusión en un entorno controlado.</p><div class="lab-tags"><span>Wazuh SIEM / EDR</span><span>MITRE ATT&CK</span><span>Sigma</span><span>Sysmon</span></div><a class="button primary" href="https://github.com/Jusnock/purple-team-soc-lab" target="_blank" rel="noopener noreferrer">Explorar repositorio <span aria-hidden="true">↗</span></a></div>
+<figure class="lab-preview"><div class="lab-window"><span class="status-dot"></span> WAZUH / SECURITY EVENTS <span class="lab-window-label">EVIDENCIA REAL</span></div><a href="../../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Ampliar captura del panel de Wazuh"><img src="../../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png" alt="Panel de Wazuh con alertas del laboratorio Purple Team" width="900" height="506" fetchpriority="high"></a><figcaption>Eventos correlacionados en el SIEM <span>T1110.001</span></figcaption></figure>
+</section>
+<div class="container lab-flow" aria-label="Flujo del laboratorio"><div><span>01 / EMULAR</span><strong>Fuerza bruta SSH</strong><small>Kali Linux · Hydra</small></div><div><span>02 / DETECTAR</span><strong>Correlacionar eventos</strong><small>Wazuh · Regla 100010</small></div><div><span>03 / RESPONDER</span><strong>Contener el origen</strong><small>Active Response · iptables</small></div></div>
+<div class="container lab-layout"><aside class="lab-index" aria-label="Índice del caso de estudio"><p>EN ESTA PÁGINA</p><nav><a href="#resumen-del-proyecto">Resumen del Proyecto</a><a href="#topologia-de-red-dual-nic">Topología de Red Dual-NIC</a><a href="#caso-de-estudio-1-ataque-de-fuerza-bruta-ssh-mitre-t1110001">Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)</a><a href="#evidencias-tecnicas-dashboard">Evidencias Técnicas &amp; Dashboard</a><a href="#repositorio-del-proyecto">Repositorio del Proyecto</a></nav><a class="lab-source" href="https://github.com/Jusnock/purple-team-soc-lab" target="_blank" rel="noopener noreferrer">Código y configuración ↗</a></aside><article class="lab-article"><h2 id="resumen-del-proyecto">Resumen del Proyecto</h2>
+<p>Laboratorio integral de ciberseguridad enfocado en la <strong>emulación de adversarios</strong> (Red Team), <strong>ingeniería de detección</strong> (<em>Detection-as-Code</em>) y análisis en <strong>SIEM/EDR</strong> (Blue Team) mapeado a la matriz <strong>MITRE ATT&amp;CK</strong>.</p>
+<p>El objetivo del proyecto es reproducir técnicas reales de intrusión en un entorno controlado, analizar la telemetría generada en endpoints Windows y Linux, y construir reglas de detección precisas (Sigma / Wazuh) junto con playbooks de respuesta a incidentes bajo estándar NIST SP 800-61 / SANS.</p>
+<hr />
+<h2 id="topologia-de-red-dual-nic">Topología de Red Dual-NIC</h2>
+<p>El laboratorio se encuentra desplegado en un hipervisor <strong>VirtualBox</strong> utilizando una arquitectura aislada de dos interfaces por máquina para separar la gestión externa del tráfico de ataque y telemetría:</p>
+<ul>
+<li><strong>Adaptador 1 (NAT):</strong> Conectividad a internet para paquetes y actualizaciones.</li>
+<li><strong>Adaptador 2 (Host-Only <code>vboxnet0</code>):</strong> Subred privada <code>192.168.56.0/24</code> dedicada exclusivamente al tráfico de emulación, telemetría e ingesta de logs.</li>
+</ul>
+<div class="lab-topology" role="group" aria-label="Topología del laboratorio en la subred aislada 192.168.56.0/24">
+<p class="topology-label">VIRTUALBOX / HOST-ONLY / 192.168.56.0/24 · HOST DE CONTROL: 192.168.56.1</p>
+<div class="topology-grid">
+<div class="topology-node offensive"><span>EMULACIÓN</span><strong>Kali Linux</strong><code>192.168.56.20</code><small>Hydra · Nmap · Metasploit</small></div>
+<div class="topology-node"><span>ENDPOINT WINDOWS</span><strong>Windows 11 Pro</strong><code>192.168.56.10</code><small>Sysmon · ScriptBlock Logging</small></div>
+<div class="topology-node"><span>ENDPOINT LINUX</span><strong>Ubuntu Server</strong><code>192.168.56.15</code><small>OpenSSH · Web App</small></div>
+<div class="topology-node defensive"><span>DETECCIÓN Y RESPUESTA</span><strong>Wazuh 4.x</strong><code>192.168.56.30</code><small>Indexer · Manager · Dashboard</small></div>
+</div>
+<p class="topology-path">Emulación de ataques <span aria-hidden="true">→</span> Telemetría de endpoints <span aria-hidden="true">→</span> SIEM <span aria-hidden="true">→</span> Contención en Linux</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nodo</th>
+<th style="text-align: left;">Sistema Operativo</th>
+<th style="text-align: left;">IP Lab (<code>vboxnet0</code>)</th>
+<th style="text-align: left;">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SOC SIEM</strong></td>
+<td style="text-align: left;">Ubuntu Server 24.04</td>
+<td style="text-align: left;"><code>192.168.56.30</code></td>
+<td style="text-align: left;">Ingesta de logs, correlación y Active Response</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Endpoint Windows</strong></td>
+<td style="text-align: left;">Windows 11 Pro</td>
+<td style="text-align: left;"><code>192.168.56.10</code></td>
+<td style="text-align: left;">Telemetría Sysmon y PowerShell ScriptBlock</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Servidor Linux</strong></td>
+<td style="text-align: left;">Ubuntu Server 24.04</td>
+<td style="text-align: left;"><code>192.168.56.15</code></td>
+<td style="text-align: left;">Servicios SSH y aplicaciones emuladas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Atacante</strong></td>
+<td style="text-align: left;">Kali Linux</td>
+<td style="text-align: left;"><code>192.168.56.20</code></td>
+<td style="text-align: left;">Emulación de adversarios controlada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="caso-de-estudio-1-ataque-de-fuerza-bruta-ssh-mitre-t1110001">Caso de Estudio 1: Ataque de Fuerza Bruta SSH (MITRE T1110.001)</h2>
+<h3 id="1-fase-ofensiva-red-team">1. Fase Ofensiva (Red Team)</h3>
+<p>Desde la máquina Kali Linux (<code>192.168.56.20</code>), se realizó un reconocimiento con <code>nmap</code> y posterior ataque de fuerza bruta sobre el servicio OpenSSH del servidor Linux (<code>192.168.56.15</code>) utilizando <strong>Hydra</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hydra<span class="w"> </span>-l<span class="w"> </span>osboxes<span class="w"> </span>-P<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>ssh://192.168.56.15<span class="w"> </span>-t<span class="w"> </span><span class="m">4</span>
+</span></code></pre></div>
+<h3 id="2-deteccion-telemetria-blue-team">2. Detección &amp; Telemetría (Blue Team)</h3>
+<p>En Ubuntu 24.04, los intentos fallidos de autenticación SSH son gestionados por el binario <code>sshd-session</code> en lugar del demonio clásico <code>sshd</code>. Se identificaron los logs de evento:
+* <code>Failed password for osboxes from 192.168.56.20 port ... ssh2</code></p>
+<p>Se implementó una <strong>regla Sigma</strong> nativa y una <strong>regla personalizada en Wazuh</strong> (<code>local_rules.xml</code>, Regla 100010):</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">"syslog,sshd,sshd-session,"</span><span class="nt">&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100010"</span><span class="w"> </span><span class="na">level=</span><span class="s">"10"</span><span class="w"> </span><span class="na">frequency=</span><span class="s">"6"</span><span class="w"> </span><span class="na">timeframe=</span><span class="s">"120"</span><span class="nt">&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;if_matched_sid&gt;</span>5716<span class="nt">&lt;/if_matched_sid&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;same_source_ip</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>Posible<span class="w"> </span>ataque<span class="w"> </span>de<span class="w"> </span>fuerza<span class="w"> </span>bruta<span class="w"> </span>SSH<span class="w"> </span>(múltiples<span class="w"> </span>fallos<span class="w"> </span>de<span class="w"> </span>autenticación<span class="w"> </span>sshd-session<span class="w"> </span>desde<span class="w"> </span>$(srcip)).<span class="nt">&lt;/description&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&lt;id&gt;</span>T1110.001<span class="nt">&lt;/id&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&lt;id&gt;</span>T1110<span class="nt">&lt;/id&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&lt;group&gt;</span>authentication_failures,pci_dss_10.2.4,pci_dss_10.2.5,<span class="nt">&lt;/group&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nt">&lt;/group&gt;</span>
+</span></code></pre></div>
+<h3 id="3-contencion-automatizada-active-response">3. Contención Automatizada (Active Response)</h3>
+<p>Al alcanzarse el umbral de 6 intentos fallidos en 120 segundos, Wazuh dispara automáticamente un comando <strong>Active Response</strong> (<code>firewall-drop</code>) en el agente víctima, insertando una regla dinámica en <code>iptables</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>iptables<span class="w"> </span>-I<span class="w"> </span>INPUT<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.56.20<span class="w"> </span>-j<span class="w"> </span>DROP
+</span></code></pre></div>
+<p>La IP atacante queda inmediatamente aislada por el tiempo configurado, cortando la conexión TCP en curso y mitigando la intrusión en tiempo real.</p>
+<hr />
+<h2 id="evidencias-tecnicas-dashboard">Evidencias Técnicas &amp; Dashboard</h2>
+<div class="evidence-grid">
+<figure class="evidence-card">
+<p><a href="../../assets/purple-team-soc-lab/01_hydra_attack_kali.png"><img alt="Terminal de Kali Linux ejecutando el ataque de fuerza bruta SSH con Hydra" loading="lazy" src="../../assets/purple-team-soc-lab/01_hydra_attack_kali.png" /></a></p>
+<figcaption><span>01 / EMULACIÓN</span><strong>Ataque Hydra en Kali Linux</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+<figure class="evidence-card">
+<p><a href="../../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png"><img alt="Configuración de la regla personalizada 100010 en Wazuh" loading="lazy" src="../../assets/purple-team-soc-lab/02_wazuh_custom_rule_100010.png" /></a></p>
+<figcaption><span>02 / DETECCIÓN</span><strong>Regla 100010 en Wazuh SIEM</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+<figure class="evidence-card">
+<p><a href="../../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png"><img alt="Panel de eventos críticos en Wazuh para MITRE T1110.001" loading="lazy" src="../../assets/purple-team-soc-lab/03_wazuh_level10_dashboard.png" /></a></p>
+<figcaption><span>03 / CORRELACIÓN</span><strong>Eventos críticos de nivel 10</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+<figure class="evidence-card">
+<p><a href="../../assets/purple-team-soc-lab/05_iptables_firewall_drop.png"><img alt="Regla iptables DROP insertada mediante Active Response" loading="lazy" src="../../assets/purple-team-soc-lab/05_iptables_firewall_drop.png" /></a></p>
+<figcaption><span>04 / CONTENCIÓN</span><strong>Bloqueo dinámico del atacante</strong><small>Abrir captura a tamaño completo ↗</small></figcaption>
+</figure>
+</div>
+<hr />
+<h2 id="repositorio-del-proyecto">Repositorio del Proyecto</h2>
+<p>El código fuente de las reglas Sigma, configuración de Wazuh y los Playbooks de Respuesta a Incidentes (SOPs) se encuentran en GitHub:
+<strong><a href="https://github.com/Jusnock/purple-team-soc-lab">github.com/Jusnock/purple-team-soc-lab</a></strong></p></article></div>
+<section class="container lab-next"><div><p class="eyebrow">SEGUIR EXPLORANDO</p><h2>Más trabajo en práctica<span>.</span></h2></div><a class="button secondary" href="../..#projects">Todos los proyectos <span aria-hidden="true">↗</span></a></section>
+</main><footer class="container footer"><a class="brand-mark" href="../.." aria-label="Volver al portafolio">jv<span>.</span></a><p>© 2026 Juan Francisco Vazquez</p><p>Mendoza, Argentina</p><a href="#caso">Volver arriba ↑</a></footer>
+</body></html>
