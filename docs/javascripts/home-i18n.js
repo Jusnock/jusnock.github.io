@@ -107,7 +107,7 @@
   const originalTitle = document.title;
   const originalOgTitle = document.querySelector('meta[property="og:title"]').content;
   let language = "es";
-  function setLanguage(next) {
+  function renderLanguage(next) {
     language = next === "en" ? "en" : "es";
     document.documentElement.lang = language;
     textNodes.forEach(({ node, source, original }) => {
@@ -119,17 +119,47 @@
     descriptions.forEach(({ element, original }) => {
       element.content = language === "en" ? "Juan Francisco Vazquez, Information Systems Engineering student in Mendoza, Argentina. Networking and cybersecurity projects, labs, experience and contact." : original;
     });
-    button.textContent = language === "es" ? "EN" : "ES";
-    button.lang = language === "es" ? "en" : "es";
+    button.dataset.active = language;
+    button.setAttribute("aria-pressed", String(language === "en"));
     button.setAttribute("aria-label", language === "es" ? "Switch to English" : "Cambiar a español");
     button.title = button.getAttribute("aria-label");
     const status = document.querySelector("#copy-status");
     if (status.dataset.copied === "true") status.textContent = language === "es" ? "Email copiado" : "Email copied";
-    try { localStorage.setItem("portfolio-language", language); } catch {}
   }
   let saved = "es";
   try { saved = localStorage.getItem("portfolio-language") || "es"; } catch {}
-  setLanguage(saved);
-  button.hidden = false;
-  button.addEventListener("click", () => setLanguage(language === "es" ? "en" : "es"));
+  // Reserve the taller translation at the current viewport width. Both passes
+  // happen synchronously before paint, so swapping text does not move sections.
+  const stableBlocks = [...document.querySelectorAll(
+    "main p, main h2, main h3, .brand-sub, .project-meta, .project-links, .image-bar, .image-caption, .map-caption, .specialties, .actions, .social-links, .footer"
+  )];
+  function reserveTranslationSpace() {
+    const current = language;
+    const scrollY = window.scrollY;
+    stableBlocks.forEach(element => element.style.removeProperty("min-height"));
+    renderLanguage("es");
+    const spanish = stableBlocks.map(element => element.getBoundingClientRect().height);
+    renderLanguage("en");
+    const english = stableBlocks.map(element => element.getBoundingClientRect().height);
+    stableBlocks.forEach((element, index) => {
+      element.style.minHeight = `${Math.ceil(Math.max(spanish[index], english[index]))}px`;
+    });
+    renderLanguage(current);
+    window.scrollTo({ top: scrollY, behavior: "instant" });
+  }
+  renderLanguage(saved);
+  reserveTranslationSpace();
+  button.disabled = false;
+  button.addEventListener("click", () => {
+    const scrollY = window.scrollY;
+    renderLanguage(language === "es" ? "en" : "es");
+    try { localStorage.setItem("portfolio-language", language); } catch {}
+    window.scrollTo({ top: scrollY, behavior: "instant" });
+  });
+  let resizeFrame;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(reserveTranslationSpace);
+  });
+  document.fonts?.ready.then(reserveTranslationSpace);
 })();

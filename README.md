@@ -45,4 +45,4 @@ Creá un Markdown en `docs/proyectos/`, agregá sus recursos a `docs/assets/` y 
 
 ## Idiomas
 
-El botón EN/ES de la cabecera alterna los textos de la portada sin recargar la página. El idioma inicial es español; la elección se conserva en `localStorage` cuando está disponible. Para modificar las traducciones, editá `docs/javascripts/home-i18n.js`. Los casos de estudio y los PDFs conservan su contenido en español.
+El selector ES | EN de la cabecera indica el idioma activo y alterna los textos de la portada sin recargar la página. Reserva espacio para ambas traducciones y conserva la posición de scroll al cambiar de idioma. El idioma inicial es español; la elección se conserva en `localStorage` cuando está disponible. Para modificar las traducciones, editá `docs/javascripts/home-i18n.js`. Los casos de estudio y los PDFs conservan su contenido en español.

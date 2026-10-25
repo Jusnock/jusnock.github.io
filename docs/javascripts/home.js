@@ -20,7 +20,7 @@ document.addEventListener("keydown", event => {
 document.addEventListener("click", event => {
   if (!event.target.closest(".nav-wrap")) closeMenu();
 });
-window.matchMedia("(min-width: 801px)").addEventListener("change", closeMenu);
+window.matchMedia("(min-width: 1001px)").addEventListener("change", closeMenu);
 document.querySelector("#copy-email").addEventListener("click", async () => {
   const status = document.querySelector("#copy-status");
   try {
