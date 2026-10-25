@@ -63,9 +63,9 @@ body {
   font-size: 0.75rem !important;
 }
 .tag-badge-success {
-  background: rgba(52, 211, 153, 0.1) !important;
-  color: #34d399 !important;
-  border-color: rgba(52, 211, 153, 0.2) !important;
+  background: rgba(130, 181, 255, 0.1) !important;
+  color: #82b5ff !important;
+  border-color: rgba(130, 181, 255, 0.2) !important;
 }
 
 /* Buttons */
@@ -113,4 +113,14 @@ body {
 .md-typeset pre > code {
   background-color: #09090b !important;
   border: 1px solid #27272a !important;
+}
+
+/* Shared portfolio identity and readable documentation on small screens. */
+:root, [data-md-color-scheme="slate"] { --md-typeset-a-color: #82b5ff !important; }
+.md-typeset img { border-radius: 6px; }
+a:focus-visible { outline: 2px solid #82b5ff; outline-offset: 4px; }
+@media (max-width: 760px) {
+  .md-content { padding: 1rem !important; margin: 1rem .5rem !important; border-radius: 8px !important; min-width: 0; }
+  .md-typeset h1 { overflow-wrap: anywhere; }
+  .btn-primary, .btn-secondary { max-width: 100%; flex-wrap: wrap; }
 }

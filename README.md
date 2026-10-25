@@ -1,70 +1,43 @@
-# 🛡️ Portafolio Técnico & Knowledge Base (Docs & Writeups)
+# Portfolio · Juan Francisco Vazquez
 
-Portafolio profesional en formato **Docs & Writeups** creado con **MkDocs + Material Theme** (el estándar de la comunidad de ciberseguridad, DevOps e ingeniería de infraestructura).
+Portfolio de infraestructura, redes y ciberseguridad construido con MkDocs y Material. La portada usa HTML, CSS y JavaScript locales, sin Tailwind ni dependencias de JavaScript externas.
 
----
+## Desarrollo local
 
-## 📁 Estructura del Proyecto
-
-```
-portfolio-docs/
-├── mkdocs.yml                  # Configuración central (tema, menú, extensiones, mermaid)
-├── serve.sh                    # Script para levantar servidor de desarrollo local
-├── build.sh                    # Script para compilar el sitio a HTML estático
-├── docs/                       # Artículos y laboratorios en formato Markdown puro (.md)
-│   ├── index.md                # Portada y bienvenida
-│   ├── sobre-mi.md             # Perfil, experiencia y descarga de CV
-│   ├── assets/                 # Recursos (CV-Juan-Francisco-Vazquez.pdf)
-│   ├── redes-infra/            # Casos de estudio de Redes y SysAdmin
-│   │   ├── topologia-corporativa-cpce.md
-│   │   ├── active-directory-gpo-hardening.md
-│   │   └── infraestructura-linux-docker.md
-│   ├── ciberseguridad-purple-team/ # Writeups y laboratorios de seguridad
-│   │   ├── thm-cyber-security-101.md
-│   │   ├── thm-soc-level-1.md
-│   │   └── lab-purple-team-simulacion.md
-│   ├── proyectos/              # Casos de software y backend
-│   │   ├── syscow-gestion-agropecuaria.md
-│   │   └── rst-salud-digital.md
-│   └── certificaciones/        # Notas de estudio
-│       ├── comptia-security-plus.md
-│       └── cisco-networking-academy.md
-└── site/                       # Sitio HTML estático listo para producción
+```bash
+python3 -m venv .venv
+.venv/bin/pip install mkdocs-material
+./serve.sh
 ```
 
----
+Abrí http://127.0.0.1:8000. Los cambios se recargan automáticamente.
 
-## 🚀 Cómo probarlo localmente
+## Archivos principales
 
-1. Ejecutá el script de servidor local:
-   ```bash
-   ./portfolio-docs/serve.sh
-   ```
-2. Abrí en tu navegador: **`http://127.0.0.1:8000`**
-3. Cualquier cambio que hagas en los archivos `.md` de la carpeta `docs/` se recargará automáticamente en vivo (*hot reload*).
+- `overrides/home.html`: portada, proyectos, experiencia, formación y contacto.
+- `docs/stylesheets/home.css`: diseño responsive de la portada.
+- `docs/javascripts/home.js`: menú accesible y copia del email.
+- `docs/stylesheets/extra.css`: estilos de la documentación técnica.
+- `docs/proyectos/`: casos de estudio en Markdown.
+- `docs/assets/`: CV, memoria técnica y evidencias de los laboratorios.
+- `mkdocs.yml`: configuración de MkDocs.
 
----
+`docs/portfolio.html` redirige a la portada para mantener la URL anterior.
 
-## ✍️ Cómo agregar nuevos Writeups o Laboratorios
+## Compilar y publicar
 
-Solo tenés que crear un nuevo archivo `.md` dentro de la carpeta correspondiente en `docs/` (por ejemplo `docs/ciberseguridad-purple-team/nuevo-lab.md`) y agregarlo en la sección `nav:` de `portfolio-docs/mkdocs.yml`.
+```bash
+./build.sh
+```
 
----
+El sitio compilado queda en `site/` (ignorado por Git). Para previsualizar esa compilación:
 
-## 🌐 Cómo publicarlo 100% Gratis en GitHub Pages (`jusnock.github.io`)
+```bash
+python3 -m http.server 8000 --directory site
+```
 
-Tenés dos formas súper fáciles:
+El workflow en `.github/workflows/` publica en GitHub Pages cuando se hace push a `main`. También se puede publicar manualmente con `.venv/bin/mkdocs gh-deploy`.
 
-### Método A: Despliegue automático con MkDocs (Recomendado)
-1. En GitHub, creá un repositorio público llamado **`jusnock.github.io`**.
-2. Cloná o agregá el remote en la carpeta `portfolio-docs`:
-   ```bash
-   cd portfolio-docs
-   git init
-   git remote add origin https://github.com/Jusnock/jusnock.github.io.git
-   .venv/bin/mkdocs gh-deploy --force
-   ```
-3. ¡Listo! MkDocs compila y sube el sitio automáticamente. Estará online en `https://jusnock.github.io`.
+## Agregar un proyecto
 
-### Método B: Subir la carpeta `site/`
-El contenido de `portfolio-docs/site/` ya son archivos HTML/CSS/JS estáticos puros. Podés subir el contenido de esa carpeta a la rama principal de `jusnock.github.io` o arrastrarlo a Vercel / Netlify / Cloudflare Pages.
+Creá un Markdown en `docs/proyectos/`, agregá sus recursos a `docs/assets/` y enlazalo desde `overrides/home.html`. Conservá las rutas con el filtro `url` de MkDocs en la plantilla para resolver los recursos correctamente.
